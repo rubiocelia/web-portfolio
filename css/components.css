@@ -350,7 +350,7 @@
 =========================== */
 
 #featured-project {
-  padding: 8rem 0;
+  padding: 4rem 0;
   background: var(--color-background);
 }
 
@@ -490,4 +490,195 @@
   display: flex;
   justify-content: center;
   margin-top: 4rem;
+}
+
+/* ==========================
+   PROJECTS SECTION
+========================== */
+
+#projects {
+  padding: 8rem 0;
+  background: var(--color-surface);
+  position: relative;
+}
+
+#projects .container hr {
+  margin: 3rem auto;
+  width: 85%;
+  background-color: var(--color-primary-dark);
+}
+
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.project-category {
+  margin-top: 4rem;
+}
+
+.design-projects {
+  margin-top: 0;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.category-header h3 {
+  font-size: var(--fs-2xl);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.category-header p:last-child {
+  color: var(--color-text-light);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.category-header .section-subtitle {
+  margin: 0 0 1rem 0;
+}
+
+/* CONTROLES DEL CARRUSEL */
+
+.carousel-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.carousel-btn {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+
+  background: var(--color-background);
+  color: var(--color-text);
+
+  cursor: pointer;
+  font-size: 1.2rem;
+
+  transition: var(--transition);
+}
+
+.carousel-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+/* CARRUSEL */
+
+.design-carousel-wrapper {
+  position: relative;
+}
+
+.design-carousel {
+  display: flex;
+  gap: 2rem;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+}
+
+.design-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* TARJETAS DISEÑO */
+
+.design-card {
+  position: relative;
+  flex: 0 0 calc(33.333% - 1.35rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+}
+
+.design-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.design-card:hover img {
+  transform: scale(1.08);
+}
+
+/* OVERLAY HOVER */
+
+.design-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 2rem;
+
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.design-card:hover .design-overlay {
+  opacity: 1;
+}
+
+.design-overlay h4 {
+  margin-bottom: 0.8rem;
+  font-size: var(--fs-lg);
+}
+
+.design-overlay p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* BOTÓN */
+
+.design-btn {
+  width: fit-content;
+
+  padding: 0.7rem 1.4rem;
+
+  border-radius: 999px;
+
+  background: white;
+  color: var(--color-text);
+
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+
+  transition: var(--transition);
+}
+
+.design-btn:hover {
+  transform: translateY(-3px);
 }
