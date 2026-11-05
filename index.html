@@ -1,48 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/web-portfolio/assets/img/favicon.png">
+    <title>Celia Rubio · Diseño y desarrollo web</title>
+    <meta name="description"
+        content="Portfolio de Celia Rubio, diseñadora web y desarrolladora frontend. Diseño en Figma y programo los especiales digitales de elEconomista.">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+    <!-- Tema: se aplica aquí, antes de pintar, para que no parpadee al cargar -->
+    <script>
+        (function () {
+            let theme = null;
+            try {
+                theme = localStorage.getItem("theme");
+            } catch (error) { }
+
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            if (theme === "dark" || (!theme && prefersDark)) {
+                document.documentElement.classList.add("dark-mode");
+            }
+        })();
+    </script>
+
     <!-- Tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..700;1,9..144,100..700&family=Hanken+Grotesk:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <title>Celia Rubio · Diseñadora Web UI/UX & Frontend</title>
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
+
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
     <header class="header">
 
         <div class="container">
 
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Principal">
 
-                <a href="#hero" class="logo">
-                    <img src="assets/img/logoCR-bg.png" alt="Logo Celia Rubio">
+                <a href="#inicio" class="wordmark" aria-label="Celia Rubio, ir al inicio">
+                    Celia <span>Rubio</span>
                 </a>
 
                 <ul class="nav-menu">
-                    <li><a href="#about-personal">Sobre mí</a></li>
-                    <li><a href="#about-experience">Experiencia</a></li>
-                    <li><a href="#projects">Proyectos</a></li>
-                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
 
-                <button class="theme-btn" aria-label="Cambiar tema">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <button class="theme-btn" type="button" aria-label="Activar modo oscuro">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" />
+                        <path
+                            d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
                     </svg>
                 </button>
 
@@ -50,57 +78,40 @@
 
         </div>
 
+        <span class="progress" aria-hidden="true"></span>
+
     </header>
 
-    <main>
+    <main id="contenido">
 
-        <section id="hero">
+        <!-- ===========================
+             INICIO
+        =========================== -->
 
-            <div class="container hero">
+        <section class="hero" id="inicio">
 
-                <div class="hero-content">
+            <div class="container hero-grid">
 
-                    <span class="hero-badge">
-                        <span class="status-dot"></span>
-                        Web Designer & Frontend Developer
-                    </span>
+                <h1 class="hero-name">
+                    <span class="hero-line">Celia</span>
+                    <span class="hero-line">Rubio</span>
+                </h1>
 
-                    <h1>
-                        Diseñadora y desarrolladora de
-                        <span class="accent">interfaces web</span>
-                        modernas
-                    </h1>
+                <img src="assets/img/fotoPerfDibj.png" alt="Ilustración de Celia Rubio" class="hero-photo" width="500"
+                    height="500" fetchpriority="high">
 
-                    <p class="hero-description">
-                        Soy Celia Rubio, desarrolladora web especializada en crear interfaces modernas, intuitivas y
-                        optimizadas. Disfruto convirtiendo diseños en experiencias rápidas, accesibles y cuidadas hasta
+                <p class="hero-role">Diseñadora y desarrolladora web</p>
+
+                <div class="hero-intro">
+
+                    <p class="hero-lead">
+                        Diseño interfaces en Figma y las convierto en webs rápidas, accesibles y cuidadas hasta
                         el último detalle.
                     </p>
 
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn">
-                            Ver proyectos
-
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12H19" />
-                                <path d="M13 6L19 12L13 18" />
-                            </svg>
-
-                        </a>
-
-                        <a href="#contact" class="btn btn-outline">
-                            Contactar
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="hero-image">
-
-                    <div class="hero-photo">
-
-                        <img src="assets/img/fotoPerfDibj.png" alt="Celia Rubio">
-
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="btn">Ver proyectos</a>
+                        <a href="#contacto" class="btn btn-outline">Escríbeme</a>
                     </div>
 
                 </div>
@@ -109,624 +120,406 @@
 
         </section>
 
-        <section id="highlights">
+        <!-- ===========================
+             PROYECTOS
+        =========================== -->
 
-            <div class="container">
+        <section class="projects" id="proyectos" aria-labelledby="proyectos-titulo">
 
-                <div class="section-title">
+            <h2 id="proyectos-titulo" class="visually-hidden">Proyectos</h2>
 
-                    <p class="section-subtitle">Mi enfoque</p>
+            <!-- PROYECTO DESTACADO · REDISEÑO ELECONOMISTA -->
 
-                    <h2>
-                        Diseño productos digitales que combinan estética, funcionalidad y rendimiento.
-                    </h2>
+            <article class="feature feature--reverse" id="rediseno" data-tone="rediseno"
+                aria-labelledby="rediseno-titulo">
 
-                </div>
+                <div class="container feature-grid">
 
-                <div class="highlights-grid">
+                    <div class="feature-head">
 
-                    <article class="highlight-card">
-
-                        <div class="highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <rect x="3" y="4" width="18" height="16" rx="2" />
-                                <path d="M3 9H21" />
-                                <path d="M8 4V20" />
-                            </svg>
-                        </div>
-
-                        <h3>Diseño UI</h3>
+                        <h3 class="feature-title" id="rediseno-titulo">
+                            Rediseño de elEconomista.es
+                        </h3>
 
                         <p>
-                            Interfaces limpias y visualmente atractivas centradas en la experiencia del usuario.
+                            Rediseño completo de la web del periódico para modernizarla: Bootstrap deja paso a
+                            un sistema propio con CSS Grid, pensado para cargar menos y mejorar las
+                            Core Web Vitals.
                         </p>
 
-                    </article>
+                        <ul class="feature-list">
+                            <li>Rejilla de seis columnas que se anida dentro de cada bloque</li>
+                            <li>Colores y tipografías centralizados en variables CSS</li>
+                            <li>Tipografías de sistema e imágenes con carga diferida</li>
+                        </ul>
 
-                    <article class="highlight-card">
+                        <dl class="feature-meta">
+                            <div>
+                                <dt>Rol</dt>
+                                <dd>Diseño y desarrollo frontend</dd>
+                            </div>
+                            <div>
+                                <dt>Herramientas</dt>
+                                <dd>Figma, HTML, CSS Grid, variables CSS, JavaScript</dd>
+                            </div>
+                            <div>
+                                <dt>Fecha</dt>
+                                <dd>2026, pendiente de lanzamiento</dd>
+                            </div>
+                        </dl>
 
-                        <div class="highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M8 6L3 12L8 18" />
-                                <path d="M16 6L21 12L16 18" />
-                                <path d="M13 4L11 20" />
-                            </svg>
+                        <!-- TODO: cuando se publique, añadir aquí el enlace "Ver la web" -->
+                        <div class="feature-links">
+                            <a href="proyectos/rediseno-eleconomista.html" class="btn">Ver el análisis</a>
                         </div>
 
-                        <h3>Desarrollo Frontend</h3>
+                    </div>
+
+                    <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
+                    <div class="media-placeholder">
+                        <span>Captura pendiente: portada nueva en escritorio y móvil</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- PROYECTO DESTACADO · ESPECIALES ELECONOMISTA -->
+
+            <article class="feature" id="especiales" data-tone="economista" aria-labelledby="especiales-titulo">
+
+                <div class="container feature-grid">
+
+                    <div class="feature-head">
+
+                        <h3 class="feature-title" id="especiales-titulo">
+                            Cuatro especiales, cuatro identidades
+                        </h3>
 
                         <p>
-                            Código limpio, responsive y mantenible utilizando tecnologías web actuales.
+                            Especiales digitales de elEconomista, diseñados en Figma y maquetados a medida.
+                            Todos comparten la misma estructura (portada de la revista, visor y rejilla de
+                            noticias), pero cada tema tiene su propia paleta, su tipografía y su ritmo.
                         </p>
 
-                    </article>
+                        <dl class="feature-meta">
+                            <div>
+                                <dt>Rol</dt>
+                                <dd>Diseño y desarrollo</dd>
+                            </div>
+                            <div>
+                                <dt>Herramientas</dt>
+                                <dd>Figma, HTML, CSS, JavaScript</dd>
+                            </div>
+                            <div>
+                                <dt>Fecha</dt>
+                                <dd>2025 – actualidad</dd>
+                            </div>
+                        </dl>
 
-                    <article class="highlight-card">
-
-                        <div class="highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <circle cx="12" cy="12" r="8" />
-                                <path d="M12 12L17 7" />
-                            </svg>
+                        <div class="feature-links">
+                            <a href="proyectos/especiales-eleconomista.html" class="btn">Ver el análisis</a>
                         </div>
 
-                        <h3>Optimización</h3>
+                    </div>
+
+                    <!-- TODO: revisar los colores de cada especial con los hex reales de tu Figma -->
+                    <ul class="specials" aria-label="Especiales">
+
+                        <li>
+                            <a href="https://www.eleconomista.es/especiales/20Aniversario/"
+                                class="special special--aniversario" target="_blank" rel="noopener">
+                                <span class="special-name">20 Aniversario</span>
+                                <span class="special-desc">Serif clásica y fotografía documental para dos
+                                    décadas de historia.</span>
+                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.eleconomista.es/salud-bienestar/noticias/13887570/04/26/especial-salud-2026.html"
+                                class="special special--salud" target="_blank" rel="noopener">
+                                <span class="special-name">Salud</span>
+                                <span class="special-desc">Crema y naranja, con titulares en cursiva y una
+                                    cabecera ilustrada.</span>
+                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.eleconomista.es/actualidad/noticias/14014650/09/26/especial-formacion-2026.html"
+                                class="special special--formacion" target="_blank" rel="noopener">
+                                <span class="special-name">Formación</span>
+                                <span class="special-desc">Iconos dibujados a mano y separadores ondulados,
+                                    el más cálido de los cuatro.</span>
+                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.eleconomista.es/actualidad/noticias/13975781/06/26/especial-movilidad-2026.html"
+                                class="special special--movilidad" target="_blank" rel="noopener">
+                                <span class="special-name">Movilidad</span>
+                                <span class="special-desc">Azul acero, bloques de color a sangre y titulares
+                                    grandes alineados a la derecha.</span>
+                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+            <!-- PROYECTO DESTACADO · EVENTIUM -->
+
+            <article class="feature feature--reverse" id="eventium" data-tone="eventium"
+                aria-labelledby="eventium-titulo">
+
+                <div class="container feature-grid">
+
+                    <div class="feature-head">
+
+                        <h3 class="feature-title" id="eventium-titulo">
+                            Eventium, de la investigación al código
+                        </h3>
 
                         <p>
-                            Webs rápidas, accesibles y optimizadas para ofrecer la mejor experiencia.
+                            Mi proyecto de fin de grado: una web para descubrir eventos y comprar entradas.
+                            Empezamos con investigación de usuarios y un prototipo en Figma, y terminamos con
+                            una aplicación completa en PHP y MySQL.
                         </p>
 
-                    </article>
+                        <ul class="feature-list">
+                            <li>Compra de entradas con pasarela de pago simulada</li>
+                            <li>Buscador que muestra resultados mientras escribes</li>
+                            <li>Calendario de fechas y mapa en cada evento</li>
+                            <li>Perfil con las entradas compradas</li>
+                        </ul>
 
-                </div>
-
-            </div>
-
-        </section>
-
-        <section id="about">
-            <div class="container">
-
-                <div class="about-block about-personal" id="about-personal">
-
-                    <p class="section-subtitle">Conóceme un poco mejor</p>
-
-                    <h2>¡Hola! Soy Celia Rubio</h2>
-
-                    <p>
-                        Soy diseñadora web especializada en interfaces UI/UX y frontend, centrada en crear
-                        productos digitales que combinan estética, usabilidad y rendimiento.
-                    </p>
-
-                    <p>
-                        Diseño en Figma y desarrollo con HTML, CSS y JavaScript, cuidando cada detalle de la
-                        identidad visual sin perder de vista el rendimiento. Actualmente en ElEconomista.es,
-                        donde trabajo secciones y especiales digitales con animaciones modernas basadas en scroll.
-                    </p>
-
-                    <p>
-                        Fuera del código, el voleibol ha sido parte de mi vida durante más de 10 años: primero
-                        como jugadora y, desde 2021 hasta 2025, como entrenadora de equipos de niños de distintas
-                        edades y niveles. Ha sido una escuela constante de trabajo en equipo, comunicación clara
-                        y toma de decisiones rápida — habilidades que aplico igual cuando diseño una interfaz o
-                        priorizo qué resolver primero en un proyecto.
-                    </p>
-
-                    <a href="#contact" class="btn">Contactar</a>
-
-                </div>
-
-                <div class="about-block about-experience" id="about-experience">
-
-                    <p class="section-subtitle">Mi experiencia</p>
-
-                    <h2>De dónde vengo y en qué me he especializado</h2>
-
-                    <p class="exp-intro">
-                        He trabajado tanto en medios digitales como en proyectos de desarrollo web, diseñando
-                        y construyendo interfaces para distintos sectores y necesidades.
-                    </p>
-
-                    <div class="exp-layout">
-
-                        <div class="exp-timeline-modern">
-
-                            <div class="exp-step">
-                                <span class="exp-step-number">01</span>
-                                <div class="exp-step-body">
-                                    <span class="exp-step-date">2025 — Actualidad</span>
-                                    <h4>Diseñadora Web</h4>
-                                    <p>ElEconomista.es</p>
-                                </div>
+                        <!-- TODO: concretar qué parte hiciste tú dentro del grupo -->
+                        <dl class="feature-meta">
+                            <div>
+                                <dt>Rol</dt>
+                                <dd>Proyecto en grupo: investigación, diseño y desarrollo</dd>
                             </div>
-
-                            <div class="exp-step">
-                                <span class="exp-step-number">02</span>
-                                <div class="exp-step-body">
-                                    <span class="exp-step-date">2024 — 2025</span>
-                                    <h4>Desarrolladora Web</h4>
-                                    <p>Aghasa Turis</p>
-                                </div>
+                            <div>
+                                <dt>Herramientas</dt>
+                                <dd>Figma, PHP, MySQL, JavaScript, FullCalendar, Leaflet</dd>
                             </div>
-
-                            <div class="exp-step">
-                                <span class="exp-step-number">03</span>
-                                <div class="exp-step-body">
-                                    <span class="exp-step-date">2024</span>
-                                    <h4>Prácticas (FCT)</h4>
-                                    <p>Quid Qualitas</p>
-                                </div>
+                            <div>
+                                <dt>Fecha</dt>
+                                <dd>2024, TFG de DAW</dd>
                             </div>
+                        </dl>
 
-                        </div>
-
-                        <div class="exp-skills-modern">
-
-                            <div class="exp-skill-block">
-                                <span class="exp-skill-label">Diseño</span>
-                                <div class="exp-skill-chips">
-                                    <span>Figma</span>
-                                    <span>Prototipado</span>
-                                    <span>UI Design</span>
-                                </div>
-                            </div>
-
-                            <div class="exp-skill-block">
-                                <span class="exp-skill-label">Frontend</span>
-                                <div class="exp-skill-chips">
-                                    <span>HTML5</span>
-                                    <span>CSS3</span>
-                                    <span>JavaScript</span>
-                                    <span>Bootstrap</span>
-                                </div>
-                            </div>
-
-                            <div class="exp-skill-block">
-                                <span class="exp-skill-label">Herramientas</span>
-                                <div class="exp-skill-chips">
-                                    <span>Git</span>
-                                    <span>WordPress</span>
-                                    <span>GitHub</span>
-                                </div>
-                            </div>
-
+                        <div class="feature-links">
+                            <a href="proyectos/eventium.html" class="btn">Ver el análisis</a>
+                            <a href="https://github.com/rubiocelia/eventium" class="btn btn-outline" target="_blank"
+                                rel="noopener">Ver el código</a>
                         </div>
 
                     </div>
 
-                    <p class="exp-closing">
-                        Hoy sigo combinando el diseño de secciones digitales en mi trabajo actual con proyectos
-                        propios donde experimento con nuevas ideas e interfaces.
-                    </p>
+                    <img src="assets/img/proyectos/eventium/figma-portada.webp"
+                        alt="Mockup en Figma de la portada de Eventium: buscador sobre una foto de un evento"
+                        class="feature-image" width="1440" height="900" loading="lazy">
 
                 </div>
 
-            </div>
-        </section>
+            </article>
 
-        <hr>
+            <!-- PROYECTO DESTACADO · EAGLE GLASSES -->
 
-        <section id="projects">
-            <div class="container">
+            <article class="feature" id="eagle" data-tone="eagle" aria-labelledby="eagle-titulo">
 
-                <div class="project-category design-projects">
-                    <div class="category-header">
-                        <div>
-                            <p class="section-subtitle">
-                                Diseño UI
-                            </p>
-                            <h3>
-                                Interfaces pensadas para conectar
-                            </h3>
-                            <p>
-                                Una selección de interfaces, propuestas visuales y experiencias digitales diseñadas en
-                                Figma, combinando estética, usabilidad y atención al detalle.
-                            </p>
+                <div class="container feature-grid">
+
+                    <div class="feature-head">
+
+                        <h3 class="feature-title" id="eagle-titulo">
+                            Eagle Glasses, un catálogo conectado a una API
+                        </h3>
+
+                        <p>
+                            Rediseño de la web de una marca italiana de gafas de seguridad. El catálogo de
+                            productos se carga desde una API, que probé y documenté con Postman antes de
+                            conectarla al frontend.
+                        </p>
+
+                        <!-- TODO: confirmar el rol y si los idiomas y el selector de gafas fueron cosa tuya -->
+                        <dl class="feature-meta">
+                            <div>
+                                <dt>Rol</dt>
+                                <dd>Rediseño y desarrollo en Aghasa Turis</dd>
+                            </div>
+                            <div>
+                                <dt>Herramientas</dt>
+                                <dd>HTML, CSS, JavaScript, API REST, Postman</dd>
+                            </div>
+                            <div>
+                                <dt>Fecha</dt>
+                                <dd>2024 – 2025</dd>
+                            </div>
+                        </dl>
+
+                        <div class="feature-links">
+                            <a href="proyectos/eagle-glasses.html" class="btn">Ver el análisis</a>
+                            <a href="https://www.eagle-glasses.com/" class="btn btn-outline" target="_blank"
+                                rel="noopener">Ver la web</a>
                         </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn web-prev">
-                                ←
-                            </button>
-                            <button class="carousel-btn web-next">
-                                →
-                            </button>
-                        </div>
+
                     </div>
 
-                    <div class="design-carousel-wrapper">
-                        <div class="design-carousel">
-                            <!-- TARJETA 1 -->
-                            <article class="design-card">
-                                <img src="assets/img/project1.jpg" alt="Proyecto diseño 1">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Rediseño Dashboard
-                                    </h4>
-                                    <p>
-                                        Diseño de interfaz moderna enfocada en mejorar la experiencia del usuario.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- TARJETA 2 -->
-                            <article class="design-card">
-                                <img src="assets/img/project2.jpg" alt="Proyecto diseño 2">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Landing Page
-                                    </h4>
-                                    <p>
-                                        Diseño visual para una campaña digital.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- TARJETA 3 -->
-                            <article class="design-card">
-                                <img src="assets/img/project3.jpg" alt="Proyecto diseño 3">
-                                <div class="design-overlay">
-                                    <h4>
-                                        App Mobile
-                                    </h4>
-                                    <p>
-                                        Propuesta UX/UI centrada en accesibilidad.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- TARJETA 4 -->
-                            <article class="design-card">
-                                <img src="assets/img/project4.jpg" alt="Proyecto diseño 4">
-                                <div class="design-overlay">
-                                    <h4>
-                                        E-commerce
-                                    </h4>
-                                    <p>
-                                        Diseño de tienda online responsive.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-
-                            </article>
-                            <!-- TARJETA 5 -->
-                            <article class="design-card">
-                                <img src="assets/img/project2.jpg" alt="Proyecto diseño 5">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Nuevo concepto web
-                                    </h4>
-                                    <p>
-                                        Diseño experimental de interfaz.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-
-                                </div>
-
-                            </article>
-                        </div>
+                    <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
+                    <div class="media-placeholder">
+                        <span>Captura pendiente: portada en escritorio y móvil</span>
                     </div>
 
                 </div>
 
-                <hr>
+            </article>
 
-                <div class="project-category web-projects">
-                    <div class="category-header">
-                        <div>
-                            <p class="section-subtitle">
-                                Proyectos profesionales
-                            </p>
-                            <h3>
-                                Diseño y desarrollo profesional
-                            </h3>
-                            <p>
-                                Proyectos desarrollados durante mi experiencia profesional, desde el diseño y la
-                                maquetación hasta la creación de experiencias web funcionales y optimizadas.
-                            </p>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn personal-prev">
-                                ←
-                            </button>
-                            <button class="carousel-btn personal-next">
-                                →
-                            </button>
-                        </div>
-                    </div>
+            <!-- MÁS PROYECTOS -->
 
-                    <div class="design-carousel-wrapper">
-                        <div class="design-carousel">
-                            <!-- TARJETA 1 -->
-                            <article class="design-card">
-                                <img src="assets/img/project1.jpg" alt="Proyecto diseño 1">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Rediseño Dashboard
-                                    </h4>
-                                    <p>
-                                        Diseño de interfaz moderna enfocada en mejorar la experiencia del usuario.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
+            <div class="container more-projects">
+
+                <h3 class="more-title">Más proyectos</h3>
+
+                <div class="project-group">
+
+                    <h4>Trabajo profesional</h4>
+
+                    <ul class="project-row">
+
+                        <li>
+                            <article class="project-card">
+                                <span class="project-year">2024 – 2025</span>
+                                <h5 class="project-name">Edelco</h5>
+                                <p class="project-desc">Web corporativa en WordPress para un fabricante alemán de
+                                    herramientas abrasivas, con catálogo de productos y descarga en PDF.</p>
+                                <span class="project-tags">WordPress, PHP, CSS</span>
+                                <div class="project-links">
+                                    <a href="proyectos/edelco.html" class="text-link">Ver el análisis</a>
+                                    <a href="https://www.edelco.eu/" class="text-link" target="_blank"
+                                        rel="noopener">Ver la web</a>
                                 </div>
                             </article>
-                            <!-- TARJETA 2 -->
-                            <article class="design-card">
-                                <img src="assets/img/project2.jpg" alt="Proyecto diseño 2">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Landing Page
-                                    </h4>
-                                    <p>
-                                        Diseño visual para una campaña digital.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- TARJETA 3 -->
-                            <article class="design-card">
-                                <img src="assets/img/project3.jpg" alt="Proyecto diseño 3">
-                                <div class="design-overlay">
-                                    <h4>
-                                        App Mobile
-                                    </h4>
-                                    <p>
-                                        Propuesta UX/UI centrada en accesibilidad.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- TARJETA 4 -->
-                            <article class="design-card">
-                                <img src="assets/img/project4.jpg" alt="Proyecto diseño 4">
-                                <div class="design-overlay">
-                                    <h4>
-                                        E-commerce
-                                    </h4>
-                                    <p>
-                                        Diseño de tienda online responsive.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
+                        </li>
 
-                            </article>
-                            <!-- TARJETA 5 -->
-                            <article class="design-card">
-                                <img src="assets/img/project2.jpg" alt="Proyecto diseño 5">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Nuevo concepto web
-                                    </h4>
-                                    <p>
-                                        Diseño experimental de interfaz.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-
+                        <!-- TODO: confirmar el año de Erizo -->
+                        <li>
+                            <article class="project-card">
+                                <span class="project-year">2024 – 2025</span>
+                                <h5 class="project-name">Erizo</h5>
+                                <p class="project-desc">Web corporativa en WordPress para la primera fábrica de limas de
+                                    España, fundada en Tolosa en 1927.</p>
+                                <span class="project-tags">WordPress, PHP, CSS</span>
+                                <div class="project-links">
+                                    <a href="proyectos/erizo.html" class="text-link">Ver el análisis</a>
+                                    <a href="https://www.erizo1927.com/" class="text-link" target="_blank"
+                                        rel="noopener">Ver la web</a>
                                 </div>
-
                             </article>
-                        </div>
-                    </div>
+                        </li>
+
+                    </ul>
 
                 </div>
 
-                <hr>
+                <div class="project-group">
 
-                <div class="project-category personal-projects">
-                    <div class="category-header">
-                        <div>
-                            <p class="section-subtitle">
-                                Proyectos personales
-                            </p>
-                            <h3>
-                                Donde las ideas toman forma
-                            </h3>
-                            <p>
-                                Proyectos propios en los que experimento, aprendo y doy forma a nuevas ideas a través
-                                del diseño y el desarrollo web.
-                            </p>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn design-prev">
-                                ←
-                            </button>
-                            <button class="carousel-btn design-next">
-                                →
-                            </button>
-                        </div>
-                    </div>
+                    <h4>Proyectos de clase (DAW)</h4>
 
-                    <div class="design-carousel-wrapper">
-                        <div class="design-carousel">
-                            <!-- TARJETA 1 -->
-                            <article class="design-card">
-                                <img src="assets/img/project1.jpg" alt="Proyecto diseño 1">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Rediseño Dashboard
-                                    </h4>
-                                    <p>
-                                        Diseño de interfaz moderna enfocada en mejorar la experiencia del usuario.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
+                    <!-- TODO: si QQservicios fue para Quid Qualitas, pasarlo a "Trabajo profesional" -->
+                    <ul class="project-row">
+
+                        <li>
+                            <article class="project-card">
+                                <span class="project-year">2024</span>
+                                <h5 class="project-name">QQservicios</h5>
+                                <p class="project-desc">Web de servicios con panel de administración para gestionar
+                                    productos, coaches, galerías y testimonios, con gráficos de uso.</p>
+                                <span class="project-tags">PHP, MySQL, JavaScript, Chart.js</span>
+                                <div class="project-links">
+                                    <a href="proyectos/qqservicios.html" class="text-link">Ver el análisis</a>
+                                    <a href="https://github.com/rubiocelia/QQservicios" class="text-link"
+                                        target="_blank" rel="noopener">Ver el código</a>
                                 </div>
                             </article>
-                            <!-- TARJETA 2 -->
-                            <article class="design-card">
-                                <img src="assets/img/project2.jpg" alt="Proyecto diseño 2">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Landing Page
-                                    </h4>
-                                    <p>
-                                        Diseño visual para una campaña digital.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- TARJETA 3 -->
-                            <article class="design-card">
-                                <img src="assets/img/project3.jpg" alt="Proyecto diseño 3">
-                                <div class="design-overlay">
-                                    <h4>
-                                        App Mobile
-                                    </h4>
-                                    <p>
-                                        Propuesta UX/UI centrada en accesibilidad.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- TARJETA 4 -->
-                            <article class="design-card">
-                                <img src="assets/img/project4.jpg" alt="Proyecto diseño 4">
-                                <div class="design-overlay">
-                                    <h4>
-                                        E-commerce
-                                    </h4>
-                                    <p>
-                                        Diseño de tienda online responsive.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-                                </div>
+                        </li>
 
-                            </article>
-                            <!-- TARJETA 5 -->
-                            <article class="design-card">
-                                <img src="assets/img/project2.jpg" alt="Proyecto diseño 5">
-                                <div class="design-overlay">
-                                    <h4>
-                                        Nuevo concepto web
-                                    </h4>
-                                    <p>
-                                        Diseño experimental de interfaz.
-                                    </p>
-                                    <a href="#" class="design-btn">
-                                        Ver proyecto
-                                    </a>
-
+                        <li>
+                            <article class="project-card">
+                                <span class="project-year">2024</span>
+                                <h5 class="project-name">Equilibria</h5>
+                                <p class="project-desc">Proyecto de fin de curso: reserva de citas con profesionales de
+                                    bienestar, calendario de disponibilidad y eventos.</p>
+                                <span class="project-tags">PHP, MySQL, FullCalendar, Swiper</span>
+                                <div class="project-links">
+                                    <a href="proyectos/equilibria.html" class="text-link">Ver el análisis</a>
+                                    <a href="https://github.com/rubiocelia/Equlibria" class="text-link" target="_blank"
+                                        rel="noopener">Ver el código</a>
                                 </div>
-
                             </article>
-                        </div>
-                    </div>
+                        </li>
+
+                    </ul>
 
                 </div>
 
-            </div>
-
-        </section>
-
-        <section id="featured-project">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <p class="section-subtitle">
-                        Proyecto destacado
-                    </p>
-
-                    <h2>
-                        Saboria
-                    </h2>
-
-                    <p class="featured-description">
-                        Plataforma web para un festival gastronómico que reúne restaurantes, chefs invitados y
-                        experiencias culinarias en un diseño moderno, intuitivo y completamente responsive.
-                    </p>
-
-                </div>
-
-                <a href="#projects" class="featured-link">
-
-                    <div class="devices">
-
-                        <div class="device desktop">
-
-                            <div class="device-screen">
-
-                                <img src="assets/img/project1-desktop.jpg" alt="Vista escritorio de Saboria">
-
-                            </div>
-
-                        </div>
-
-                        <div class="device tablet">
-
-                            <div class="device-screen">
-
-                                <img src="assets/img/project1-tablet.jpg" alt="Vista tablet de Saboria">
-
-                            </div>
-
-                        </div>
-
-                        <div class="device phone">
-
-                            <div class="device-screen">
-
-                                <img src="assets/img/project1-mob.jpg" alt="">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="featured-overlay">
-
-                        <span>
-                            Ver proyecto completo
-                        </span>
-
-                        <svg class="overlay-icon" viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" />
-                            <path d="M9 7H17V15" />
-                        </svg>
-
-                    </div>
-
+                <a href="https://github.com/rubiocelia" class="text-link" target="_blank" rel="noopener">
+                    Más código en mi GitHub
                 </a>
 
-                <div class="featured-more">
+            </div>
 
-                    <a href="#projects" class="btn btn-outline">
-                        Ver más proyectos
+        </section>
 
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19" />
-                            <path d="M13 6L19 12L13 18" />
-                        </svg>
+        <!-- ===========================
+             SOBRE MÍ
+        =========================== -->
 
-                    </a>
+        <section class="section about" id="sobre-mi" aria-labelledby="sobre-mi-titulo">
+
+            <div class="container about-grid">
+
+                <div class="about-head">
+
+                    <h2 id="sobre-mi-titulo">Sobre mí</h2>
+
+                    <p class="about-lead">
+                        Me gusta estar en los dos lados: decidir cómo se ve una web y ser yo quien la
+                        construye.
+                    </p>
+
+                </div>
+
+                <div class="about-text">
+
+                    <p>
+                        Diseño en Figma y desarrollo con HTML, CSS y JavaScript. Cuido que la identidad visual
+                        sea coherente, que el diseño responda bien en cualquier pantalla y que la página cargue
+                        rápido. Últimamente experimento mucho con CSS moderno, sobre todo con animaciones
+                        ligadas al scroll.
+                    </p>
+
+                    <p>
+                        Ahora estoy cursando un máster en Inteligencia Artificial y Big Data, porque me interesa
+                        entender los datos que hay detrás de las interfaces.
+                    </p>
+
+                    <p>
+                        Fuera del código, el voleibol ha sido parte de mi vida durante más de diez años: primero
+                        como jugadora y, de 2021 a 2025, como entrenadora de equipos infantiles. Me ha enseñado
+                        a trabajar en equipo, a explicar las cosas con claridad y a decidir rápido qué va
+                        primero. Lo aplico igual cuando diseño una interfaz.
+                    </p>
 
                 </div>
 
@@ -734,59 +527,137 @@
 
         </section>
 
-        <section id="contact">
-            <div class="container">
+        <!-- ===========================
+             EXPERIENCIA
+        =========================== -->
 
-                <div class="section-title">
-                    <p class="section-subtitle">Contacto</p>
-                    <h2>¿Hablamos?</h2>
+        <section class="section experience" id="experiencia" aria-labelledby="experiencia-titulo">
+
+            <div class="container experience-grid">
+
+                <h2 id="experiencia-titulo">Experiencia</h2>
+
+                <div class="experience-cols">
+
+                    <div>
+
+                        <h3 class="experience-subtitle">Trabajo</h3>
+
+                        <ol class="timeline">
+                            <li>
+                                <span class="timeline-date">2025 – actualidad</span>
+                                <span class="timeline-role">Diseñadora web</span>
+                                <span class="timeline-place">elEconomista</span>
+                            </li>
+                            <li>
+                                <span class="timeline-date">2024 – 2025</span>
+                                <span class="timeline-role">Desarrolladora web</span>
+                                <span class="timeline-place">Aghasa Turis</span>
+                            </li>
+                            <li>
+                                <span class="timeline-date">2024</span>
+                                <span class="timeline-role">Prácticas de desarrollo web</span>
+                                <span class="timeline-place">Quid Qualitas</span>
+                            </li>
+                        </ol>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="experience-subtitle">Formación</h3>
+
+                        <!-- TODO: añadir los años del grado y el nombre del centro -->
+                        <ol class="timeline">
+                            <li>
+                                <span class="timeline-date">En curso</span>
+                                <span class="timeline-role">Máster en Inteligencia Artificial y Big Data</span>
+                                <span class="timeline-place">DigitechFP</span>
+                            </li>
+                            <li>
+                                <span class="timeline-date">Grado superior</span>
+                                <span class="timeline-role">Desarrollo de Aplicaciones Web (DAW)</span>
+                                <span class="timeline-place">Nombre del centro</span>
+                            </li>
+                        </ol>
+
+                    </div>
+
                 </div>
 
-                <div class="contact-links">
+                <div class="skills">
 
-                    <a href="mailto:rubiopaiscelia@gmail.com" class="contact-link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="4" width="20" height="16" rx="2" />
-                            <path d="M2 6L12 13L22 6" />
-                        </svg>
-                        rubiopaiscelia@gmail.com
-                    </a>
+                    <h3 class="experience-subtitle">Con qué trabajo</h3>
 
-                    <a href="https://linkedin.com/in/tu-usuario" target="_blank" class="contact-link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="9" width="4" height="12" />
-                            <circle cx="4" cy="4" r="2" />
-                            <path d="M10 9v12M10 13a4 4 0 0 1 8 0v8" />
-                        </svg>
-                        LinkedIn
-                    </a>
+                    <dl class="skills-list">
+                        <div>
+                            <dt>Diseño</dt>
+                            <dd>Figma, diseño de interfaces, prototipado, diseño responsive</dd>
+                        </div>
+                        <div>
+                            <dt>Frontend</dt>
+                            <dd>HTML, CSS (Grid, Flexbox, scroll-driven animations), JavaScript, rendimiento y
+                                Core Web Vitals</dd>
+                        </div>
+                        <div>
+                            <dt>Backend y CMS</dt>
+                            <dd>PHP, MySQL, WordPress, Bootstrap</dd>
+                        </div>
+                        <div>
+                            <dt>Aprendiendo</dt>
+                            <dd>Python, análisis de datos, Machine Learning</dd>
+                        </div>
+                    </dl>
 
                 </div>
 
             </div>
+
+        </section>
+
+        <!-- ===========================
+             CONTACTO
+        =========================== -->
+
+        <section class="section contact" id="contacto" aria-labelledby="contacto-titulo">
+
+            <div class="container">
+
+                <h2 id="contacto-titulo" class="contact-title">¿Hablamos?</h2>
+
+                <p class="contact-text">
+                    Si buscas a alguien que diseñe y programe tu próxima web, escríbeme.
+                </p>
+
+                <a href="mailto:rubiopaiscelia@gmail.com" class="contact-mail">rubiopaiscelia@gmail.com</a>
+
+                <ul class="contact-links">
+                    <!-- TODO: poner la URL real de LinkedIn y descomentar -->
+                    <!-- <li><a href="https://www.linkedin.com/in/TU-USUARIO/" class="text-link" target="_blank" rel="noopener">LinkedIn</a></li> -->
+                    <li><a href="https://github.com/rubiocelia" class="text-link" target="_blank"
+                            rel="noopener">GitHub</a></li>
+                </ul>
+
+            </div>
+
         </section>
 
     </main>
 
-    <footer>
+    <footer class="footer">
+
+        <div class="container">
+            <p>© 2026 Celia Rubio</p>
+            <p>
+                Hecha con HTML, CSS y JavaScript.
+                <a href="https://github.com/rubiocelia/web-portfolio" class="text-link" target="_blank"
+                    rel="noopener">Ver el código</a>
+            </p>
+        </div>
+
     </footer>
 
     <script src="js/main.js"></script>
-
-    <script>
-        // Toggle de modo oscuro
-        const themeBtn = document.querySelector('.theme-btn');
-        const body = document.body;
-
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-        }
-
-        themeBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-        });
-    </script>
 
 </body>
 

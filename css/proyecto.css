@@ -1,0 +1,252 @@
+/* ===========================
+   PÁGINA DE PROYECTO
+   Plantilla común de todos los análisis (carpeta proyectos/).
+   El color de cada página sale de su data-tone en <html>.
+=========================== */
+
+/* ===========================
+   CABECERA DEL PROYECTO
+=========================== */
+
+.case-hero {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gutter);
+  row-gap: var(--space-md);
+  padding-top: calc(var(--header-height) + var(--space-xl));
+  padding-bottom: var(--space-xl);
+}
+
+.case-hero > * {
+  grid-column: 1 / -1;
+}
+
+.case-back {
+  justify-self: start;
+  font-size: var(--fs-sm);
+  color: var(--tone-accent);
+}
+
+.case-type {
+  font-size: var(--fs-sm);
+  color: var(--tone-accent);
+  font-weight: var(--fw-medium);
+}
+
+.case-title {
+  grid-column: 1 / 11;
+  font-size: var(--fs-2xl);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.case-lead {
+  grid-column: 1 / 9;
+  font-size: var(--fs-lg);
+  line-height: 1.45;
+}
+
+.case-meta {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid color-mix(in srgb, var(--tone-ink) 14%, transparent);
+  font-size: var(--fs-sm);
+}
+
+.case-meta dt {
+  color: var(--tone-accent);
+  font-weight: var(--fw-medium);
+}
+
+.case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.case-cover {
+  margin-bottom: var(--space-xl);
+}
+
+/* ===========================
+   SECCIONES
+   Título fijo a la izquierda, contenido a la derecha.
+=========================== */
+
+.case-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gutter);
+  row-gap: var(--space-md);
+  padding-block: var(--space-xl);
+  border-top: 1px solid color-mix(in srgb, var(--tone-ink) 12%, transparent);
+}
+
+.case-section h2 {
+  grid-column: 1 / 5;
+  align-self: start;
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-md));
+  font-size: var(--fs-xl);
+  text-wrap: balance;
+}
+
+.case-body {
+  grid-column: 6 / -1;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.case-body h3 {
+  font-size: var(--fs-lg);
+  margin-top: var(--space-sm);
+}
+
+.case-body ul {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.case-body li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.case-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.45rem;
+  height: 1px;
+  background: var(--tone-accent);
+}
+
+.case-body code {
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--tone-accent) 10%, transparent);
+}
+
+/* Nota de algo que falta por rellenar: se ve a propósito para no olvidarlo */
+.todo {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px dashed color-mix(in srgb, var(--tone-accent) 50%, transparent);
+  border-radius: var(--radius-sm);
+  color: var(--tone-accent);
+  font-size: var(--fs-sm);
+}
+
+/* ===========================
+   PALETA
+=========================== */
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--space-sm);
+}
+
+.palette li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0;
+  font-size: var(--fs-xs);
+}
+
+.palette li::before {
+  content: "";
+  position: static;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  margin-bottom: 0.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--swatch);
+}
+
+.palette code {
+  justify-self: start;
+}
+
+.palette strong {
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sm);
+}
+
+/* ===========================
+   SIGUIENTE PROYECTO
+=========================== */
+
+.case-next {
+  display: grid;
+  gap: var(--space-xs);
+  padding-block: var(--space-xl);
+  border-top: 1px solid color-mix(in srgb, var(--tone-ink) 12%, transparent);
+}
+
+.case-next span {
+  font-size: var(--fs-sm);
+  color: var(--tone-accent);
+}
+
+.case-next a {
+  justify-self: start;
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  transition: color var(--transition-fast);
+}
+
+.case-next a:hover {
+  color: var(--tone-accent);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 960px) {
+  .case-title,
+  .case-lead,
+  .case-meta,
+  .case-section h2,
+  .case-body {
+    grid-column: 1 / -1;
+  }
+
+  .case-section h2 {
+    position: static;
+  }
+}
+
+/* ===========================
+   IMÁGENES
+=========================== */
+
+.case-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--tone-ink) 10%, transparent);
+}
+
+.case-figure {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.case-figure figcaption {
+  font-size: var(--fs-sm);
+  color: color-mix(in srgb, var(--tone-ink) 70%, transparent);
+}

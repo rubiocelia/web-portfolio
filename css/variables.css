@@ -1,51 +1,185 @@
+/* ===========================
+   VARIABLES
+   Tokens de diseño: todo color, tipografía y medida
+   sale de aquí. Si cambias un valor, cambia en toda la web.
+=========================== */
+
 :root {
-  /* COLORES */
+  /* COLORES · paleta salvia */
 
   --color-primary: #879f94;
   --color-primary-dark: #6f877d;
   --color-primary-light: #a5b8af;
+  --color-primary-ink: #4a6157; /* salvia oscuro: el único que pasa contraste AA como texto sobre claro */
+  --color-primary-wash: #e6ece8;
 
   --color-background: #f7f7f5;
   --color-surface: #ffffff;
 
   --color-text: #1d1d1d;
-  --color-text-light: #6b6b6b;
+  --color-text-light: #5f5f5f;
 
-  --color-border: #e7e7e7;
+  --color-border: #e2e2de;
 
-  --color-success: #6aa87a;
-  --color-warning: #d8a84d;
-  --color-error: #d96b6b;
+  /* TONO DE SECCIÓN
+     El JS cambia data-tone en <html> según el proyecto visible
+     y estos tres valores cambian con él (ver bloque TONOS). */
+
+  --tone-bg: var(--color-background);
+  --tone-ink: var(--color-text);
+  --tone-accent: var(--color-primary-ink);
 
   /* TIPOGRAFÍA */
 
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
 
-  --fs-xs: 0.875rem;
-  --fs-sm: 1rem;
-  --fs-md: 1.125rem;
-  --fs-lg: 1.5rem;
-  --fs-xl: 2.25rem;
-  --fs-2xl: 3.5rem;
-  --fs-3xl: 5rem;
+  /* Escala fluida: crece con el ancho de pantalla entre un mínimo y un máximo */
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --fs-xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  --fs-2xl: clamp(2.5rem, 1.8rem + 3.4vw, 4.5rem);
+  --fs-hero: clamp(4rem, 1.5rem + 13vw, 13.5rem);
 
   /* PESOS */
 
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
-  --fw-bold: 700;
 
-  /* SOMBRAS */
+  /* ESPACIADO */
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.12);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --space-xl: clamp(4rem, 3rem + 4vw, 7rem);
+  --space-section: clamp(5rem, 3.5rem + 7vw, 10rem);
+
+  /* LAYOUT */
+
+  --container: 1240px;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --header-height: 72px;
+  --radius-sm: 6px;
+  --radius-md: 14px;
 
   /* TRANSICIONES */
 
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --transition-fast: 0.2s ease;
-  --transition: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition: 0.35s var(--ease-out);
+  --transition-tone: 0.8s ease;
+}
+
+/* ===========================
+   MODO OSCURO
+   Va en <html> (no en <body>) para poder aplicarlo
+   en el <head> antes de pintar y evitar el parpadeo.
+=========================== */
+
+:root.dark-mode {
+  --color-primary-ink: #a5b8af;
+  --color-primary-wash: #24302b;
+
+  --color-background: #141615;
+  --color-surface: #1c1f1d;
+
+  --color-text: #ecedea;
+  --color-text-light: #a3a8a4;
+
+  --color-border: #2d322f;
+}
+
+/* ===========================
+   TONOS
+   Un tono por proyecto. En modo claro cambian el fondo;
+   en modo oscuro solo el acento, para no deslumbrar.
+=========================== */
+
+:root[data-tone="economista"] {
+  --tone-bg: #f6efe6;
+  --tone-ink: #2a211b;
+  --tone-accent: #b4541f;
+}
+
+:root[data-tone="eventium"] {
+  --tone-bg: #eaf1f7;
+  --tone-ink: #11283b;
+  --tone-accent: #11446e;
+}
+
+:root[data-tone="eagle"] {
+  --tone-bg: #ecedef;
+  --tone-ink: #16181c;
+  --tone-accent: #2f3640;
+}
+
+:root[data-tone="rediseno"] {
+  --tone-bg: #fff4ec;
+  --tone-ink: #2a1d14;
+  --tone-accent: #b84800;
+}
+
+:root[data-tone="edelco"] {
+  --tone-bg: #eef1f6;
+  --tone-ink: #0b1a33;
+  --tone-accent: #021e4f;
+}
+
+:root[data-tone="erizo"] {
+  --tone-bg: #f0efed;
+  --tone-ink: #1f1d1b;
+  --tone-accent: #5b4d40;
+}
+
+:root[data-tone="qqservicios"] {
+  --tone-bg: #ecf6f4;
+  --tone-ink: #1b1a3a;
+  --tone-accent: #2a255b;
+}
+
+:root[data-tone="equilibria"] {
+  --tone-bg: #eff4ee;
+  --tone-ink: #1d2a24;
+  --tone-accent: #4d6a5c;
+}
+
+:root.dark-mode[data-tone] {
+  --tone-bg: var(--color-background);
+  --tone-ink: var(--color-text);
+}
+
+:root.dark-mode[data-tone="economista"] {
+  --tone-accent: #f0a06b;
+}
+
+:root.dark-mode[data-tone="eventium"] {
+  --tone-accent: #8db4e0;
+}
+
+:root.dark-mode[data-tone="eagle"] {
+  --tone-accent: #c3c9d1;
+}
+
+:root.dark-mode[data-tone="rediseno"] {
+  --tone-accent: #ff9a52;
+}
+
+:root.dark-mode[data-tone="edelco"] {
+  --tone-accent: #9bb4de;
+}
+
+:root.dark-mode[data-tone="erizo"] {
+  --tone-accent: #cdbba7;
+}
+
+:root.dark-mode[data-tone="qqservicios"] {
+  --tone-accent: #7fd1c5;
+}
+
+:root.dark-mode[data-tone="equilibria"] {
+  --tone-accent: #a5c2b3;
 }

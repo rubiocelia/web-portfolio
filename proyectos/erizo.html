@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es" data-tone="erizo">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erizo · Celia Rubio</title>
+    <meta name="description" content="Análisis de la web corporativa de Erizo, primera fábrica de limas de España, hecha en WordPress.">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+
+    <!-- Tema: se aplica antes de pintar para que no parpadee -->
+    <script>
+        (function () {
+            let theme = null;
+            try {
+                theme = localStorage.getItem("theme");
+            } catch (error) { }
+
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            if (theme === "dark" || (!theme && prefersDark)) {
+                document.documentElement.classList.add("dark-mode");
+            }
+        })();
+    </script>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..700;1,9..144,100..700&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+</head>
+
+<body>
+
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <header class="header">
+
+        <div class="container">
+
+            <nav class="navbar" aria-label="Principal">
+
+                <a href="../index.html" class="wordmark" aria-label="Celia Rubio, ir al inicio">
+                    Celia <span>Rubio</span>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="../index.html#proyectos" aria-current="true">Proyectos</a></li>
+                    <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+                    <li><a href="../index.html#experiencia">Experiencia</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                </ul>
+
+                <button class="theme-btn" type="button" aria-label="Activar modo oscuro">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                    </svg>
+                </button>
+
+            </nav>
+
+        </div>
+
+        <span class="progress" aria-hidden="true"></span>
+
+    </header>
+
+    <main id="contenido">
+
+        <!-- ===========================
+             CABECERA DEL PROYECTO
+        =========================== -->
+
+        <header class="container case-hero">
+
+            <a href="../index.html#proyectos" class="case-back text-link">Volver a proyectos</a>
+
+            <p class="case-type">Trabajo profesional</p>
+
+            <h1 class="case-title">Erizo, casi cien años de historia en WordPress</h1>
+
+            <p class="case-lead">
+                Web corporativa en WordPress para Erizo, la primera fábrica de limas de España, fundada en Tolosa en
+                1927.
+            </p>
+
+            <dl class="case-meta">
+                <div>
+                    <dt>Rol</dt>
+                    <dd>Desarrollo en WordPress</dd>
+                </div>
+                <div>
+                    <dt>Herramientas</dt>
+                    <dd>WordPress, PHP, CSS</dd>
+                </div>
+                <div>
+                    <dt>Fecha</dt>
+                    <dd>Por confirmar</dd>
+                </div>
+            </dl>
+
+            <div class="case-links">
+                <a href="https://www.erizo1927.com/" class="btn" target="_blank" rel="noopener">Ver la web</a>
+            </div>
+
+        </header>
+
+        <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
+        <figure class="container case-cover">
+            <div class="media-placeholder">
+                <span>Captura pendiente: tu versión de la portada</span>
+            </div>
+        </figure>
+
+        <!-- ===========================
+             ANÁLISIS
+        =========================== -->
+
+        <section class="container case-section" aria-label="El encargo">
+
+            <h2>El encargo</h2>
+
+            <div class="case-body">
+                <p>
+                    La web presenta las cuatro gamas de la empresa (limas y escofinas, brocas para metal, herramientas de
+                    corte y brocas para construcción), su historia y el catálogo general en PDF, en seis idiomas.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Una nota">
+
+            <h2>Una nota</h2>
+
+            <div class="case-body">
+                <p>
+                    La web se ha actualizado desde que la hice, así que lo que se ve hoy no es exactamente mi versión.
+                </p>
+                <p class="todo">Pendiente: capturas de tu versión. Si no las guardaste, puedes buscarla en web.archive.org con la fecha en que la entregaste.</p>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Cómo lo hice">
+
+            <h2>Cómo lo hice</h2>
+
+            <div class="case-body">
+                <p class="todo">Pendiente: si fue en Aghasa Turis, el año, el tema y los plugins, y qué partes hiciste tú.</p>
+            </div>
+
+        </section>
+
+        <!-- ===========================
+             SIGUIENTE PROYECTO
+        =========================== -->
+
+        <nav class="container case-next" aria-label="Siguiente proyecto">
+            <span>Siguiente proyecto</span>
+            <a href="qqservicios.html">QQservicios</a>
+        </nav>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="container">
+            <p>© 2026 Celia Rubio</p>
+            <p>
+                Hecha con HTML, CSS y JavaScript.
+                <a href="https://github.com/rubiocelia/web-portfolio" class="text-link" target="_blank"
+                    rel="noopener">Ver el código</a>
+            </p>
+        </div>
+
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>
