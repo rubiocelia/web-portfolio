@@ -102,7 +102,11 @@
             <dl class="case-meta">
                 <div>
                     <dt>Rol</dt>
-                    <dd>Diseño y desarrollo frontend</dd>
+                    <dd>Diseño en Figma y desarrollo frontend</dd>
+                </div>
+                <div>
+                    <dt>Equipo</dt>
+                    <dd>Dos personas, en coordinación con Redacción y Desarrollo</dd>
                 </div>
                 <div>
                     <dt>Herramientas</dt>
@@ -110,11 +114,7 @@
                 </div>
                 <div>
                     <dt>Fecha</dt>
-                    <dd>2026</dd>
-                </div>
-                <div>
-                    <dt>Estado</dt>
-                    <dd>Pendiente de lanzamiento</dd>
+                    <dd>2026, lanzamiento por fases</dd>
                 </div>
             </dl>
 
@@ -148,20 +148,39 @@
 
         </section>
 
+        <section class="container case-section" aria-label="Cómo lo hicimos">
+
+            <h2>Cómo lo hicimos</h2>
+
+            <div class="case-body">
+                <ul>
+                <li>Varias propuestas de la web entera en Figma.</li>
+                <li>Ideas de diseño por módulos y secciones, para verlas en conjunto y quedarnos con las mejores.</li>
+                <li>Reuniones con Redacción: el rediseño también actualiza el gestor desde el que preparan las portadas, para que trabajen más rápido.</li>
+                <li>Reuniones con Desarrollo para acordar cómo trabajar juntos.</li>
+                <li>Maquetas programadas que Desarrollo recibe y termina de integrar.</li>
+                <li>Maquetas en producción para que cada departamento haga pruebas y pida correcciones.</li>
+                </ul>
+            </div>
+
+        </section>
+
         <section class="container case-section" aria-label="Una rejilla propia">
 
             <h2>Una rejilla propia</h2>
 
             <div class="case-body">
                 <p>
-                    La nueva maquetación se apoya en una clase base, <code>.gd</code>, que convierte cualquier bloque en una
-                    rejilla de seis columnas con CSS Grid. Las rejillas se anidan: la portada, cada bloque de noticias y el
-                    contenido de cada noticia usan el mismo sistema, así que todo queda alineado sin clases extra.
+                    Bootstrap deja paso a una rejilla propia con CSS Grid, basada en la clase <code>.gd</code>: 12 columnas en
+                    escritorio, 6 en tablet y 1 en móvil. Las rejillas se anidan, así que la portada, cada bloque de noticias
+                    y el contenido de cada noticia usan el mismo sistema y quedan alineados sin clases extra.
                 </p>
                 <p>
-                    El resultado es que la web ya no carga ninguna hoja de estilos de Bootstrap.
+                    El motivo es la libertad de diseño: en un periódico, cada noticia puede necesitar un tamaño distinto
+                    según su importancia, y las columnas fijas de un framework se quedaban cortas. Además, la web ya no carga
+                    ninguna hoja de estilos de Bootstrap.
                 </p>
-                <p class="todo">Pendiente: un fragmento real del CSS de <code>.gd</code>, cómo cambia en cada punto de ruptura y por qué elegiste seis columnas.</p>
+                <p class="todo">Pendiente: un fragmento real del CSS de <code>.gd</code> para enseñarlo aquí.</p>
             </div>
 
         </section>
@@ -205,12 +224,15 @@
 
         </section>
 
-        <section class="container case-section" aria-label="El equipo">
+        <section class="container case-section" aria-label="Lanzamiento por fases">
 
-            <h2>El equipo</h2>
+            <h2>Lanzamiento por fases</h2>
 
             <div class="case-body">
-                <p class="todo">Pendiente: quién más ha participado, qué decidiste tú en Figma y qué partes programaste además de la rejilla.</p>
+                <p>
+                    El rediseño se publica poco a poco: primero las noticias, después las portadas y más adelante el resto de
+                    la web, como las portadillas de cada sección.
+                </p>
             </div>
 
         </section>
