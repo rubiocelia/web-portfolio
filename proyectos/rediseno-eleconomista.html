@@ -53,7 +53,7 @@
                 </a>
 
                 <ul class="nav-menu">
-                    <li><a href="../index.html#proyectos" aria-current="true">Proyectos</a></li>
+                    <li><a href="../index.html#todos-los-proyectos">Proyectos</a></li>
                     <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
                     <li><a href="../index.html#experiencia">Experiencia</a></li>
                     <li><a href="../index.html#contacto">Contacto</a></li>
@@ -123,12 +123,30 @@
 
         </header>
 
-        <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
-        <figure class="container case-cover">
-            <div class="media-placeholder">
-                <span>Captura pendiente: portada nueva en escritorio y móvil</span>
+        <div class="container case-cover">
+            <figure class="grid-demo" data-view="escritorio">
+            <div class="grid-demo-controls" role="group" aria-label="Ver la rejilla en">
+                <button type="button" data-view="escritorio" aria-pressed="true">Escritorio · 12 columnas</button>
+                <button type="button" data-view="tablet" aria-pressed="false">Tablet · 6</button>
+                <button type="button" data-view="movil" aria-pressed="false">Móvil · 1</button>
             </div>
-        </figure>
+            <div class="grid-demo-frame">
+                <div class="grid-demo-cols" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="grid-demo-layout">
+                    <div class="grid-demo-block" style="--d: 6; --t: 6; --h: 10rem; --o: 2"><span>Noticia de apertura</span></div>
+                    <div class="grid-demo-block" style="--d: 3; --t: 3; --h: 10rem; --o: 1"><span>Mercados</span></div>
+                    <div class="grid-demo-block" style="--d: 3; --t: 3; --h: 10rem; --o: 3"><span>Última hora</span></div>
+                    <div class="grid-demo-block grid-demo-block--ad" style="--d: 4; --t: 6; --h: 7rem; --o: 4"><span>Publicidad</span></div>
+                    <div class="grid-demo-block" style="--d: 4; --t: 3; --h: 7rem; --o: 4"><span>Noticia</span></div>
+                    <div class="grid-demo-block" style="--d: 4; --t: 3; --h: 7rem; --o: 4"><span>Noticia</span></div>
+                    <div class="grid-demo-block" style="--d: 12; --t: 6; --h: 3.5rem; --o: 4"><span>Especial patrocinado</span></div>
+                    <div class="grid-demo-block" style="--d: 8; --t: 6; --h: 8rem; --o: 4"><span>Noticias de sección</span></div>
+                    <div class="grid-demo-block" style="--d: 4; --t: 6; --h: 8rem; --o: 4"><span>Opinión</span></div>
+                </div>
+            </div>
+            <figcaption>Esquema de la rejilla con bloques genéricos: no reproduce el diseño real del periódico.</figcaption>
+            </figure>
+        </div>
 
         <!-- ===========================
              ANÁLISIS
@@ -143,7 +161,10 @@
                     Toda la maquetación de la web dependía de Bootstrap. Funcionaba, pero cargaba muchas reglas que no se
                     usaban y obligaba a pensar cada bloque dentro de las columnas del framework.
                 </p>
-                <p class="todo">Pendiente: medidas de antes del rediseño (peso del CSS, LCP, CLS e INP) para compararlas con las de ahora.</p>
+                <p>
+                    Como el rediseño aún no está publicado del todo, aquí no hay capturas: el esquema de arriba explica el
+                    sistema con bloques genéricos.
+                </p>
             </div>
 
         </section>
@@ -180,7 +201,42 @@
                     según su importancia, y las columnas fijas de un framework se quedaban cortas. Además, la web ya no carga
                     ninguna hoja de estilos de Bootstrap.
                 </p>
-                <p class="todo">Pendiente: un fragmento real del CSS de <code>.gd</code> para enseñarlo aquí.</p>
+                <p>
+                    Este es un fragmento simplificado de la rejilla. La clase <code>.gd</code> crea la rejilla, y cada bloque
+                    dice cuántas columnas ocupa en escritorio (<code>.gd-8</code>) y en tablet (<code>.gd-md-6</code>):
+                </p>
+                <pre><code>/* Rejilla base: 12 columnas */
+.gd {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1.875rem;
+}
+
+/* Cuántas columnas ocupa cada bloque */
+.gd-4 { grid-column: span 4; }
+.gd-8 { grid-column: span 8; }
+
+/* Tablet: 6 columnas */
+@media screen and (max-width: 992px) {
+  .gd { grid-template-columns: repeat(6, 1fr); }
+  .gd-md-6 { grid-column: span 6; }
+}
+
+/* Móvil: una sola columna */
+@media screen and (max-width: 768px) {
+  .gd { grid-template-columns: 1fr; }
+}</code></pre>
+                <p>Y así se usa en el HTML:</p>
+                <pre><code>&lt;div class="gd"&gt;
+  &lt;section class="gd-8 gd-md-6"&gt;Noticias de sección&lt;/section&gt;
+  &lt;aside class="gd-4 gd-md-6"&gt;Opinión&lt;/aside&gt;
+&lt;/div&gt;</code></pre>
+                <p>
+                    Las clases siguen la misma lógica que las de Bootstrap (<code>.gd-8</code> como <code>.col-8</code>,
+                    <code>.gd-md-6</code> como <code>.col-md-6</code>), así que el cambio de un sistema a otro es sencillo para
+                    todo el equipo. En móvil todo pasa a una columna, salvo la cabecera y la barra lateral, que mantienen su
+                    propia rejilla.
+                </p>
             </div>
 
         </section>
@@ -210,16 +266,46 @@
 
         </section>
 
-        <section class="container case-section" aria-label="Rendimiento">
+        <section class="container case-section" aria-label="Pensado para las Core Web Vitals">
 
-            <h2>Rendimiento</h2>
+            <h2>Pensado para las Core Web Vitals</h2>
 
             <div class="case-body">
                 <p>
-                    El rediseño se ha hecho pensando en las Core Web Vitals. En la portada, 83 de sus 102 imágenes se cargan
-                    de forma diferida, es decir, solo cuando se acercan a la pantalla.
+                    Google mide la experiencia de una web con tres métricas, las Core Web Vitals. Cada decisión del rediseño
+                    ayuda a alguna de ellas:
                 </p>
-                <p class="todo">Pendiente: resultados de Core Web Vitals antes y después (PageSpeed Insights o Search Console) y qué cambio tuvo más efecto.</p>
+                <div class="case-table-wrap">
+                    <table class="case-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Métrica</th>
+                                <th scope="col">Qué mide</th>
+                                <th scope="col">Qué decisiones la mejoran</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">LCP</th>
+                                <td>Cuánto tarda en verse el contenido principal</td>
+                                <td>Sin la hoja de estilos de Bootstrap, menos CSS que descargar; tipografías de sistema que no hay
+                                    que esperar; las imágenes de más abajo se cargan solo al acercarse a la pantalla</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CLS</th>
+                                <td>Si la página da saltos mientras carga</td>
+                                <td>Cada bloque tiene su sitio reservado en la rejilla, y las imágenes llevan su tamaño, así que nada
+                                    empuja al resto al aparecer</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">INP</th>
+                                <td>Cuánto tarda en responder al tocar o hacer clic</td>
+                                <td>La maquetación es CSS puro: no hace falta JavaScript para colocar ni redimensionar bloques, y el
+                                    navegador tiene menos trabajo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </section>

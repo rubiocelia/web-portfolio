@@ -55,7 +55,7 @@
                 </a>
 
                 <ul class="nav-menu">
-                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#todos-los-proyectos" data-section="proyectos">Proyectos</a></li>
                     <li><a href="#sobre-mi">Sobre mí</a></li>
                     <li><a href="#experiencia">Experiencia</a></li>
                     <li><a href="#contacto">Contacto</a></li>
@@ -110,7 +110,7 @@
                     </p>
 
                     <div class="hero-actions">
-                        <a href="#proyectos" class="btn">Ver proyectos</a>
+                        <a href="#todos-los-proyectos" class="btn">Ver proyectos</a>
                         <a href="#contacto" class="btn btn-outline">Escríbeme</a>
                     </div>
 
@@ -175,10 +175,24 @@
 
                     </div>
 
-                    <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
-                    <div class="media-placeholder">
-                        <span>Captura pendiente: portada nueva en escritorio y móvil</span>
+                    <!-- Esquema de la rejilla (sin capturas hasta que el rediseño sea público) -->
+                    <figure class="grid-demo grid-demo--static" aria-label="Esquema de la rejilla de 12 columnas" data-view="escritorio">
+                    <div class="grid-demo-frame">
+                        <div class="grid-demo-cols" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                        <div class="grid-demo-layout">
+                            <div class="grid-demo-block" style="--d: 6; --t: 6; --h: 10rem; --o: 2"><span>Noticia de apertura</span></div>
+                            <div class="grid-demo-block" style="--d: 3; --t: 3; --h: 10rem; --o: 1"><span>Mercados</span></div>
+                            <div class="grid-demo-block" style="--d: 3; --t: 3; --h: 10rem; --o: 3"><span>Última hora</span></div>
+                            <div class="grid-demo-block grid-demo-block--ad" style="--d: 4; --t: 6; --h: 7rem; --o: 4"><span>Publicidad</span></div>
+                            <div class="grid-demo-block" style="--d: 4; --t: 3; --h: 7rem; --o: 4"><span>Noticia</span></div>
+                            <div class="grid-demo-block" style="--d: 4; --t: 3; --h: 7rem; --o: 4"><span>Noticia</span></div>
+                            <div class="grid-demo-block" style="--d: 12; --t: 6; --h: 3.5rem; --o: 4"><span>Especial patrocinado</span></div>
+                            <div class="grid-demo-block" style="--d: 8; --t: 6; --h: 8rem; --o: 4"><span>Noticias de sección</span></div>
+                            <div class="grid-demo-block" style="--d: 4; --t: 6; --h: 8rem; --o: 4"><span>Opinión</span></div>
+                        </div>
                     </div>
+                    <figcaption>Esquema de la rejilla con bloques genéricos: no reproduce el diseño real del periódico.</figcaption>
+                    </figure>
 
                 </div>
 
@@ -193,13 +207,13 @@
                     <div class="feature-head">
 
                         <h3 class="feature-title" id="especiales-titulo">
-                            Cuatro especiales, cuatro identidades
+                            Especiales: una estructura, muchas identidades
                         </h3>
 
                         <p>
-                            Especiales digitales de elEconomista, diseñados en Figma y maquetados a medida.
-                            Todos comparten la misma estructura (portada de la revista, visor y rejilla de
-                            noticias), pero cada tema tiene su propia paleta, su tipografía y su ritmo.
+                            Diseño y maqueto los especiales digitales de elEconomista. Todos comparten la misma
+                            estructura (portada de la revista, visor y noticias), pero cada tema tiene su propia
+                            paleta, su tipografía y su ritmo. Estos son cuatro ejemplos.
                         </p>
 
                         <dl class="feature-meta">
@@ -219,20 +233,31 @@
 
                         <div class="feature-links">
                             <a href="proyectos/especiales-eleconomista.html" class="btn">Ver el análisis</a>
+                            <a href="https://www.eleconomista.es/especiales/" class="btn btn-outline" target="_blank"
+                                rel="noopener">Ver todos los especiales</a>
                         </div>
 
                     </div>
 
-                    <!-- TODO: revisar los colores de cada especial con los hex reales de tu Figma -->
                     <ul class="specials" aria-label="Especiales">
 
                         <li>
                             <a href="https://www.eleconomista.es/especiales/20Aniversario/"
                                 class="special special--aniversario" target="_blank" rel="noopener">
+                                <span class="special-badge">20 años del periódico</span>
                                 <span class="special-name">20 Aniversario</span>
-                                <span class="special-desc">Serif clásica y fotografía documental para dos
-                                    décadas de historia.</span>
-                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="special-desc">El especial por los 20 años de elEconomista, con los colores
+                                    corporativos: blanco, cremas y el naranja de la marca.</span>
+                                <span class="special-foot">
+                                    <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                    <span class="special-cta">
+                                        Ver el especial
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7M8 7h9v9" />
+                                        </svg>
+                                    </span>
+                                </span>
                                 <span class="visually-hidden">(se abre en una pestaña nueva)</span>
                             </a>
                         </li>
@@ -241,9 +266,18 @@
                             <a href="https://www.eleconomista.es/salud-bienestar/noticias/13887570/04/26/especial-salud-2026.html"
                                 class="special special--salud" target="_blank" rel="noopener">
                                 <span class="special-name">Salud</span>
-                                <span class="special-desc">Crema y naranja, con titulares en cursiva y una
-                                    cabecera ilustrada.</span>
-                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="special-desc">Crema y verde salvia, con titulares en Cambria y la cursiva
+                                    como acento.</span>
+                                <span class="special-foot">
+                                    <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                    <span class="special-cta">
+                                        Ver el especial
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7M8 7h9v9" />
+                                        </svg>
+                                    </span>
+                                </span>
                                 <span class="visually-hidden">(se abre en una pestaña nueva)</span>
                             </a>
                         </li>
@@ -252,9 +286,18 @@
                             <a href="https://www.eleconomista.es/actualidad/noticias/14014650/09/26/especial-formacion-2026.html"
                                 class="special special--formacion" target="_blank" rel="noopener">
                                 <span class="special-name">Formación</span>
-                                <span class="special-desc">Iconos dibujados a mano y separadores ondulados,
-                                    el más cálido de los cuatro.</span>
-                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="special-desc">Arena y oliva, con titulares en Playfair Display, iconos dibujados
+                                    a mano y separadores ondulados.</span>
+                                <span class="special-foot">
+                                    <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                    <span class="special-cta">
+                                        Ver el especial
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7M8 7h9v9" />
+                                        </svg>
+                                    </span>
+                                </span>
                                 <span class="visually-hidden">(se abre en una pestaña nueva)</span>
                             </a>
                         </li>
@@ -263,9 +306,18 @@
                             <a href="https://www.eleconomista.es/actualidad/noticias/13975781/06/26/especial-movilidad-2026.html"
                                 class="special special--movilidad" target="_blank" rel="noopener">
                                 <span class="special-name">Movilidad</span>
-                                <span class="special-desc">Azul acero, bloques de color a sangre y titulares
-                                    grandes alineados a la derecha.</span>
-                                <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="special-desc">Azul acero y gris azulado, con titulares en Cambria alineados a la
+                                    derecha y bloques de color a sangre.</span>
+                                <span class="special-foot">
+                                    <span class="special-swatches" aria-hidden="true"><i></i><i></i><i></i></span>
+                                    <span class="special-cta">
+                                        Ver el especial
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7M8 7h9v9" />
+                                        </svg>
+                                    </span>
+                                </span>
                                 <span class="visually-hidden">(se abre en una pestaña nueva)</span>
                             </a>
                         </li>
@@ -346,9 +398,9 @@
                         </h3>
 
                         <p>
-                            Rediseño de la web de una marca italiana de gafas de seguridad. El catálogo de
-                            productos se carga desde una API, que probé y documenté con Postman antes de
-                            conectarla al frontend.
+                            Web nueva para una marca italiana de gafas de seguridad. El catálogo de
+                            productos y sus traducciones a seis idiomas llegan desde una API, que probé con
+                            Postman antes de conectarla a la web.
                         </p>
 
                         <dl class="feature-meta">
@@ -358,7 +410,7 @@
                             </div>
                             <div>
                                 <dt>Herramientas</dt>
-                                <dd>HTML, CSS, JavaScript, API REST, Postman</dd>
+                                <dd>WordPress, PHP, JavaScript, API REST, Postman</dd>
                             </div>
                             <div>
                                 <dt>Fecha</dt>
@@ -374,100 +426,126 @@
 
                     </div>
 
-                    <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
-                    <div class="media-placeholder">
-                        <span>Captura pendiente: portada en escritorio y móvil</span>
-                    </div>
+                    <img src="assets/img/proyectos/eagle/portada-escritorio.webp"
+                        alt="Portada de Eagle: una trabajadora con casco y gafas de protección junto al lema We protect your eyes"
+                        class="feature-image" width="800" height="450" loading="lazy">
 
                 </div>
 
             </article>
 
-            <!-- MÁS PROYECTOS -->
 
-            <div class="container more-projects">
+            <!-- TODOS LOS PROYECTOS: índice completo, cada tarjeta lleva a su análisis -->
 
-                <h3 class="more-title">Más proyectos</h3>
+            <div class="container all-projects" id="todos-los-proyectos">
 
-                <div class="project-group">
+                <div class="all-head">
 
-                    <h4>Trabajo profesional</h4>
+                    <h3 class="all-title">Todos los proyectos</h3>
 
-                    <ul class="project-row">
+                    <!-- Filtros: los gestiona main.js. Sin JavaScript se ven todos los proyectos -->
+                    <div class="project-filters" role="group" aria-label="Filtrar proyectos">
+                        <button type="button" class="filter-btn" data-filter="todos" aria-pressed="true">Todos</button>
+                        <button type="button" class="filter-btn" data-filter="profesional" aria-pressed="false">Trabajo
+                            profesional</button>
+                        <button type="button" class="filter-btn" data-filter="clase" aria-pressed="false">Proyectos de
+                            clase</button>
+                        <button type="button" class="filter-btn" data-filter="personal" aria-pressed="false">Proyectos
+                            personales</button>
+                    </div>
 
-                        <li>
-                            <article class="project-card">
-                                <span class="project-year">2024 – 2025</span>
-                                <h5 class="project-name">Edelco</h5>
-                                <p class="project-desc">Web corporativa en WordPress para un fabricante alemán de
-                                    herramientas abrasivas, con catálogo de productos y descarga en PDF.</p>
-                                <span class="project-tags">WordPress, PHP, CSS</span>
-                                <div class="project-links">
-                                    <a href="proyectos/edelco.html" class="text-link">Ver el análisis</a>
-                                    <a href="https://www.edelco.eu/" class="text-link" target="_blank"
-                                        rel="noopener">Ver la web</a>
-                                </div>
-                            </article>
-                        </li>
-
-                        <li>
-                            <article class="project-card">
-                                <span class="project-year">2024 – 2025</span>
-                                <h5 class="project-name">Erizo</h5>
-                                <p class="project-desc">Diseño en Figma y web en WordPress para la primera fábrica de
-                                    limas de España, fundada en Tolosa en 1927.</p>
-                                <span class="project-tags">Figma, WordPress, PHP, CSS</span>
-                                <div class="project-links">
-                                    <a href="proyectos/erizo.html" class="text-link">Ver el análisis</a>
-                                    <a href="https://www.erizo1927.com/" class="text-link" target="_blank"
-                                        rel="noopener">Ver la web</a>
-                                </div>
-                            </article>
-                        </li>
-
-                        <li>
-                            <article class="project-card">
-                                <span class="project-year">2024</span>
-                                <h5 class="project-name">QQservicios</h5>
-                                <p class="project-desc">Prácticas en Quid Qualitas: web para vender sus servicios y
-                                    talleres, con panel de administración y gráficos de uso.</p>
-                                <span class="project-tags">PHP, MySQL, JavaScript, Chart.js</span>
-                                <div class="project-links">
-                                    <a href="proyectos/qqservicios.html" class="text-link">Ver el análisis</a>
-                                    <a href="https://github.com/rubiocelia/QQservicios" class="text-link"
-                                        target="_blank" rel="noopener">Ver el código</a>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
+                    <p class="visually-hidden" aria-live="polite" id="filter-status"></p>
 
                 </div>
 
-                <div class="project-group">
+                <ul class="project-grid">
 
-                    <h4>Proyectos de clase (DAW)</h4>
+                    <li data-category="profesional">
+                        <a href="proyectos/rediseno-eleconomista.html" class="project-card">
+                            <span class="project-type">elEconomista · 2026</span>
+                            <h4 class="project-name">Rediseño de elEconomista.es</h4>
+                            <p class="project-desc">De Bootstrap a una rejilla propia de 12, 6 y 1 columnas, pensada para las Core Web Vitals.</p>
+                            <span class="project-tags">Figma, CSS Grid, JavaScript</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
 
-                    <ul class="project-row">
+                    <li data-category="profesional">
+                        <a href="proyectos/especiales-eleconomista.html" class="project-card">
+                            <span class="project-type">elEconomista · 2025 – actualidad</span>
+                            <h4 class="project-name">Especiales de elEconomista</h4>
+                            <p class="project-desc">Especiales temáticos con la misma estructura y una identidad visual distinta para cada uno.</p>
+                            <span class="project-tags">Figma, HTML, CSS, JavaScript</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
 
+                    <li data-category="clase">
+                        <a href="proyectos/eventium.html" class="project-card">
+                            <span class="project-type">TFG de DAW · 2024</span>
+                            <h4 class="project-name">Eventium</h4>
+                            <p class="project-desc">Web para descubrir eventos y comprar entradas, de la investigación en Figma al desarrollo.</p>
+                            <span class="project-tags">Figma, PHP, MySQL, JavaScript</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
 
-                        <li>
-                            <article class="project-card">
-                                <span class="project-year">2024</span>
-                                <h5 class="project-name">Equilibria</h5>
-                                <p class="project-desc">Proyecto de fin de curso: reserva de citas con profesionales de
-                                    bienestar, calendario de disponibilidad y eventos.</p>
-                                <span class="project-tags">PHP, MySQL, FullCalendar, Swiper</span>
-                                <div class="project-links">
-                                    <a href="proyectos/equilibria.html" class="text-link">Ver el análisis</a>
-                                    <a href="https://github.com/rubiocelia/Equlibria" class="text-link" target="_blank"
-                                        rel="noopener">Ver el código</a>
-                                </div>
-                            </article>
-                        </li>
+                    <li data-category="profesional">
+                        <a href="proyectos/eagle-glasses.html" class="project-card">
+                            <span class="project-type">Aghasa Turis · 2024 – 2025</span>
+                            <h4 class="project-name">Eagle Glasses</h4>
+                            <p class="project-desc">Web de una marca de gafas de seguridad, con el catálogo conectado a una API.</p>
+                            <span class="project-tags">WordPress, PHP, JavaScript, API REST</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
 
-                    </ul>
+                    <li data-category="profesional">
+                        <a href="proyectos/edelco.html" class="project-card">
+                            <span class="project-type">Aghasa Turis · 2024 – 2025</span>
+                            <h4 class="project-name">Edelco</h4>
+                            <p class="project-desc">Web corporativa en WordPress para un fabricante alemán de herramientas abrasivas.</p>
+                            <span class="project-tags">WordPress, PHP, CSS</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
 
-                </div>
+                    <li data-category="profesional">
+                        <a href="proyectos/erizo.html" class="project-card">
+                            <span class="project-type">Aghasa Turis · 2024 – 2025</span>
+                            <h4 class="project-name">Erizo</h4>
+                            <p class="project-desc">Diseño en Figma y web en WordPress para la primera fábrica de limas de España.</p>
+                            <span class="project-tags">Figma, WordPress, PHP, CSS</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
+
+                    <li data-category="profesional">
+                        <a href="proyectos/qqservicios.html" class="project-card">
+                            <span class="project-type">Prácticas en Quid Qualitas · 2024</span>
+                            <h4 class="project-name">QQservicios</h4>
+                            <p class="project-desc">Web para vender servicios y talleres, con panel de administración y gráficos de uso.</p>
+                            <span class="project-tags">PHP, MySQL, JavaScript, Chart.js</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
+
+                    <li data-category="clase">
+                        <a href="proyectos/equilibria.html" class="project-card">
+                            <span class="project-type">Proyecto de fin de curso · 2024</span>
+                            <h4 class="project-name">Equilibria</h4>
+                            <p class="project-desc">Web de bienestar para reservar citas con profesionales, diseñada para transmitir calma.</p>
+                            <span class="project-tags">Figma, PHP, MySQL, FullCalendar</span>
+                            <span class="project-cta">Ver el análisis</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Se muestra cuando un filtro no tiene proyectos. Quitar cuando haya proyectos personales -->
+                <p class="project-empty" hidden>
+                    En marcha: un rediseño de la web del club ABV Boadilla Voleibol y una web para The Sushi Fest.
+                </p>
 
                 <a href="https://github.com/rubiocelia" class="text-link" target="_blank" rel="noopener">
                     Más código en mi GitHub
@@ -512,7 +590,8 @@
 
                     <p>
                         Fuera del código, el voleibol ha sido parte de mi vida durante más de diez años: primero
-                        como jugadora y, de 2021 a 2025, como entrenadora de equipos infantiles. Me ha enseñado
+                        como jugadora y, de 2021 a 2025, como entrenadora de equipos de categoría infantil,
+                        cadete y juvenil. Me ha enseñado
                         a trabajar en equipo, a explicar las cosas con claridad y a decidir rápido qué va
                         primero. Lo aplico igual cuando diseño una interfaz.
                     </p>

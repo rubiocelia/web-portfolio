@@ -13,7 +13,7 @@
   grid-template-columns: repeat(12, 1fr);
   column-gap: var(--gutter);
   row-gap: var(--space-md);
-  padding-top: calc(var(--header-height) + var(--space-xl));
+  padding-top: 10rem;
   padding-bottom: var(--space-xl);
 }
 
@@ -54,7 +54,7 @@
   gap: var(--space-md);
   margin-top: var(--space-sm);
   padding-top: var(--space-md);
-  border-top: 1px solid color-mix(in srgb, var(--tone-ink) 14%, transparent);
+  border-top: 1px solid var(--line);
   font-size: var(--fs-sm);
 }
 
@@ -85,14 +85,14 @@
   column-gap: var(--gutter);
   row-gap: var(--space-md);
   padding-block: var(--space-xl);
-  border-top: 1px solid color-mix(in srgb, var(--tone-ink) 12%, transparent);
+  border-top: 1px solid var(--line);
 }
 
 .case-section h2 {
   grid-column: 1 / 5;
   align-self: start;
   position: sticky;
-  top: calc(var(--header-height) + var(--space-md));
+  top: var(--header-offset);
   font-size: var(--fs-xl);
   text-wrap: balance;
 }
@@ -132,13 +132,13 @@
   font-size: 0.9em;
   padding: 0.1em 0.35em;
   border-radius: 4px;
-  background: color-mix(in srgb, var(--tone-accent) 10%, transparent);
+  background: var(--accent-soft);
 }
 
 /* Nota de algo que falta por rellenar: se ve a propósito para no olvidarlo */
 .todo {
   padding: var(--space-sm) var(--space-md);
-  border: 1px dashed color-mix(in srgb, var(--tone-accent) 50%, transparent);
+  border: 1px dashed var(--accent-line);
   border-radius: var(--radius-sm);
   color: var(--tone-accent);
   font-size: var(--fs-sm);
@@ -190,7 +190,7 @@
   display: grid;
   gap: var(--space-xs);
   padding-block: var(--space-xl);
-  border-top: 1px solid color-mix(in srgb, var(--tone-ink) 12%, transparent);
+  border-top: 1px solid var(--line);
 }
 
 .case-next span {
@@ -216,7 +216,7 @@
    RESPONSIVE
 =========================== */
 
-@media (max-width: 960px) {
+@media (max-width: 992px) {
   .case-title,
   .case-lead,
   .case-meta,
@@ -238,7 +238,7 @@
   width: 100%;
   height: auto;
   border-radius: var(--radius-md);
-  border: 1px solid color-mix(in srgb, var(--tone-ink) 10%, transparent);
+  border: 1px solid var(--line);
 }
 
 .case-figure {
@@ -248,5 +248,115 @@
 
 .case-figure figcaption {
   font-size: var(--fs-sm);
-  color: color-mix(in srgb, var(--tone-ink) 70%, transparent);
+  color: var(--text-soft);
+}
+
+/* ===========================
+   TABLAS Y CÓDIGO
+=========================== */
+
+/* En móvil la tabla se desplaza sola en horizontal, sin romper la página */
+.case-table-wrap {
+  overflow-x: auto;
+}
+
+.case-table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.case-table th,
+.case-table td {
+  padding: var(--space-sm);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-table thead th {
+  font-weight: var(--fw-medium);
+  color: var(--tone-accent);
+}
+
+.case-table tbody th {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-regular);
+}
+
+.case-body pre {
+  overflow-x: auto;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+}
+
+.case-body pre code {
+  padding: 0;
+  background: none;
+}
+
+/* Pasos numerados de un proceso */
+.case-steps {
+  display: grid;
+  gap: var(--space-sm);
+  counter-reset: paso;
+}
+
+.case-body .case-steps li {
+  padding-left: 2.5rem;
+  counter-increment: paso;
+}
+
+.case-body .case-steps li::before {
+  content: counter(paso);
+  top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tone-accent);
+  color: var(--tone-bg);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+/* Galería de portada: varias capturas del mismo proyecto */
+.case-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+.case-gallery img {
+  aspect-ratio: 10 / 3;
+  object-fit: cover;
+  object-position: center bottom; /* conserva los sellos y títulos, que están abajo o en el centro */
+}
+
+/* Dos capturas una al lado de la otra */
+.case-figure-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .case-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Portada en escritorio y móvil, una al lado de la otra.
+   Con 3.15fr y 1fr las dos capturas quedan a la misma altura */
+.case-devices {
+  display: grid;
+  grid-template-columns: 3.15fr 1fr;
+  gap: var(--space-sm);
+  align-items: start;
 }

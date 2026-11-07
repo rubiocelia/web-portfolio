@@ -12,7 +12,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-height) + 1rem); /* que las anclas no queden debajo del header fijo */
+  scroll-padding-top: var(--header-offset); /* que las anclas no queden debajo del header fijo */
   -webkit-text-size-adjust: 100%;
 }
 
@@ -85,9 +85,12 @@ p {
    LAYOUT
 =========================== */
 
+/* Ancho máximo del contenido, centrado y con margen a los lados */
 .container {
-  width: min(var(--container), 100% - 2 * var(--gutter));
+  width: 100%;
+  max-width: 1320px; /* 1240px de contenido + el margen de los lados */
   margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
 .section {

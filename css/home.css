@@ -7,15 +7,12 @@
    HERO
 =========================== */
 
-/* El hero ocupa exactamente la primera pantalla.
-   svh = alto de pantalla "pequeño": en móvil no cambia cuando
-   aparece o desaparece la barra del navegador. */
+/* En tablet y móvil el hero mide lo que ocupa su contenido.
+   En escritorio (más abajo, en @media min-width: 993px) ocupa exactamente la primera pantalla. */
 .hero {
   display: flex;
-  height: 100svh;
-  min-height: 32rem; /* en pantallas muy bajas, mejor que crezca a que se corte */
-  padding-top: calc(var(--header-height) + var(--space-md));
-  padding-bottom: var(--space-lg);
+  padding-top: 10rem;
+  padding-bottom: var(--space-xl);
 }
 
 .hero-grid {
@@ -30,8 +27,7 @@
 .hero-name {
   grid-column: 1 / -1;
   align-self: center;
-  /* El tamaño depende del ancho Y del alto: así cabe en cualquier pantalla */
-  font-size: min(var(--fs-hero), 22svh);
+  font-size: var(--fs-hero);
   font-weight: 300;
   line-height: 0.84;
   letter-spacing: -0.05em;
@@ -78,7 +74,7 @@
   align-self: start;
   justify-self: end;
   width: 100%;
-  max-width: min(360px, 40svh);
+  max-width: 360px;
   height: auto;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -160,11 +156,11 @@
   display: grid;
   gap: var(--space-md);
   position: sticky; /* el texto acompaña mientras pasan las imágenes */
-  top: calc(var(--header-height) + var(--space-md));
+  top: var(--header-offset);
 }
 
 .feature-head > p {
-  color: color-mix(in srgb, var(--tone-ink) 75%, transparent);
+  color: var(--text-soft);
 }
 
 .feature-grid > :last-child {
@@ -219,7 +215,7 @@
   display: grid;
   gap: 0.5rem;
   padding-block: var(--space-sm);
-  border-block: 1px solid color-mix(in srgb, var(--tone-ink) 14%, transparent);
+  border-block: 1px solid var(--line);
   font-size: var(--fs-sm);
 }
 
@@ -285,7 +281,38 @@
 .special-swatches {
   display: flex;
   gap: 0.35rem;
+}
+
+/* Pie de la tarjeta: muestras de color a un lado y el aviso de enlace al otro */
+.special-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
   margin-top: auto;
+  padding-top: var(--space-xs);
+}
+
+.special-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+/* Icono de "enlace externo": indica que se abre otra web */
+.special-cta svg {
+  width: 0.9em;
+  height: 0.9em;
+  transition: transform var(--transition);
+}
+
+.special:hover .special-cta svg {
+  transform: translate(2px, -2px);
 }
 
 .special-swatches i {
@@ -309,11 +336,30 @@
 
 /* Cada especial con su personalidad tipográfica */
 
+/* Colores y tipografías sacados del código de cada especial publicado */
+
 .special--aniversario {
-  --s-bg: #f8f0e6;
-  --s-ink: #241f1a;
-  --s-accent: #e3763a;
-  --s-third: #3a3530;
+  --s-bg: #fff7f1;
+  --s-ink: #222222;
+  --s-accent: #ff6600;
+  --s-third: #f5f5f5;
+}
+
+/* Etiqueta que destaca el especial del aniversario */
+.special-badge {
+  align-self: flex-start;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--s-accent);
+  color: #222222; /* texto oscuro sobre naranja: contraste suficiente en tamaño pequeño */
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+
+/* Roboto fina, como sus titulares */
+.special--aniversario .special-name {
+  font-family: Roboto, system-ui, sans-serif;
+  font-weight: 300;
 }
 
 /* Su crema es casi igual que el fondo de la sección:
@@ -324,21 +370,32 @@
 }
 
 .special--salud {
-  --s-bg: #fdf7f0;
-  --s-ink: #2b2420;
-  --s-accent: #e8692c;
-  --s-third: #f3dccb;
+  --s-bg: #fcfaf2;
+  --s-ink: #2d3536;
+  --s-accent: #697c70;
+  --s-third: #ffffff;
 }
 
+/* Cambria en cursiva y verde salvia, como el acento de sus titulares */
 .special--salud .special-name {
+  font-family: Cambria, Georgia, serif;
   font-style: italic;
+  color: var(--s-accent);
 }
 
 .special--formacion {
-  --s-bg: #e9dcc3;
-  --s-ink: #2e2a20;
-  --s-accent: #8c8a63;
-  --s-third: #f6f1e8;
+  --s-bg: #ebdcc4;
+  --s-ink: #222222;
+  --s-accent: #a2a57b;
+  --s-third: #f6f4ec;
+}
+
+/* Playfair Display en mayúsculas en el especial; aquí con Georgia de respaldo */
+.special--formacion .special-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 /* Separador ondulado dibujado con SVG, como en el especial */
@@ -348,57 +405,99 @@
   width: 4.5rem;
   height: 0.6rem;
   margin-top: 0.5rem;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 10'%3E%3Cpath d='M1 5c6-6 11-6 17 0s11 6 17 0 11-6 17 0 11 6 19 0' fill='none' stroke='%238c8a63' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 10'%3E%3Cpath d='M1 5c6-6 11-6 17 0s11 6 17 0 11-6 17 0 11 6 19 0' fill='none' stroke='%23a2a57b' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat;
 }
 
 .special--movilidad {
-  --s-bg: #7f9bb0;
-  --s-ink: #0f1f2b;
-  --s-accent: #dfe8ee;
-  --s-third: #34495a;
+  --s-bg: #7694a6;
+  --s-ink: #13222b; /* oscuro en vez de blanco: en texto pequeño, el blanco no tiene contraste suficiente */
+  --s-accent: #a6c3d1;
+  --s-third: #dce5e8;
 
   text-align: right;
 }
 
-.special--movilidad .special-swatches {
-  justify-content: flex-end;
+.special--movilidad .special-name {
+  font-family: Cambria, Georgia, serif;
+}
+
+.special--movilidad .special-foot {
+  flex-direction: row-reverse;
 }
 
 /* ===========================
-   MÁS PROYECTOS
-   En escritorio se ven todos; en móvil cada grupo
-   se convierte en un carrusel que se desliza con el dedo.
+   TODOS LOS PROYECTOS
+   Índice completo: cada tarjeta entera lleva a su análisis.
 =========================== */
 
-.more-projects {
+.all-projects {
   display: grid;
   gap: var(--space-lg);
   padding-block: var(--space-section);
   border-top: 1px solid var(--color-border);
 }
 
-.more-title {
+.all-title {
   font-size: var(--fs-xl);
 }
 
-.project-group {
-  display: grid;
-  grid-template-columns: 14rem 1fr;
+.all-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
   gap: var(--space-md);
 }
 
-.project-group h4 {
-  font-family: var(--font-body);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0;
-  color: var(--color-text-light);
-  padding-top: var(--space-sm);
+/* Filtros: botones tipo píldora; el activo se rellena */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
 }
 
-.project-row {
+.filter-btn {
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-background);
+}
+
+/* Mensaje cuando un filtro no tiene proyectos todavía */
+.project-empty {
+  padding: var(--space-lg) var(--space-md);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-light);
+  max-width: none;
+}
+
+.project-empty[hidden] {
+  display: none;
+}
+
+/* Las tarjetas filtradas se ocultan con el atributo hidden */
+.project-grid li[hidden] {
+  display: none;
+}
+
+.project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   gap: var(--space-sm);
 }
 
@@ -418,9 +517,10 @@
 
 .project-card:hover {
   border-color: var(--color-primary);
+  transform: translateY(-3px);
 }
 
-.project-year,
+.project-type,
 .project-tags {
   font-size: var(--fs-xs);
   color: var(--color-text-light);
@@ -429,15 +529,7 @@
 .project-name {
   font-family: var(--font-display);
   font-size: var(--fs-lg);
-  font-weight: var(--fw-regular);
-}
-
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  padding-top: var(--space-xs);
-  font-size: var(--fs-sm);
+  line-height: 1.15;
 }
 
 .project-desc {
@@ -447,7 +539,15 @@
 .project-tags {
   margin-top: auto;
   padding-top: 0.5rem;
+}
+
+.project-cta {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
   color: var(--color-primary-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
 }
 
 /* ===========================
@@ -501,7 +601,7 @@
 
 .experience-cols {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
 }
 
@@ -531,7 +631,7 @@
 .timeline li::before {
   content: "";
   position: absolute;
-  left: calc(-1 * var(--space-md) - 4.5px);
+  left: -28.5px; /* centra el punto sobre la línea */
   top: 0.45rem;
   width: 8px;
   height: 8px;
@@ -556,7 +656,7 @@
 
 .skills-list {
   display: grid;
-  border-top: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
+  border-top: 1px solid var(--line);
 }
 
 .skills-list div {
@@ -564,7 +664,7 @@
   grid-template-columns: 12rem 1fr;
   gap: var(--space-sm);
   padding-block: var(--space-sm);
-  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
+  border-bottom: 1px solid var(--line);
 }
 
 .skills-list dt {
@@ -619,7 +719,30 @@
    RESPONSIVE
 =========================== */
 
-@media (max-width: 960px) {
+/* Escritorio: el hero ocupa exactamente la primera pantalla.
+   svh = alto "pequeño" de la pantalla, el que queda con todas las barras del navegador visibles. */
+@media (min-width: 993px) {
+  .hero {
+    height: 100svh;
+    min-height: 32rem; /* en pantallas muy bajas, mejor que crezca a que se corte */
+    padding-top: var(--header-offset);
+    padding-bottom: var(--space-lg);
+  }
+
+}
+
+/* Portátiles con poca altura: nombre e ilustración más pequeños para que el inicio quepa en la pantalla */
+@media (min-width: 993px) and (max-height: 760px) {
+  :root {
+    --fs-hero: 9rem;
+  }
+
+  .hero-photo {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 992px) {
   .feature-head,
   .feature--reverse .feature-head,
   .feature-grid > :last-child,
@@ -643,21 +766,17 @@
     grid-column: 1 / -1;
     grid-row: auto;
   }
-
-  .project-group {
-    grid-template-columns: 1fr;
-  }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .hero-grid {
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-rows: auto;
     row-gap: var(--space-md);
   }
 
-  /* En móvil el nombre se ajusta al ancho de pantalla, sin pasarse de alto */
+  /* En móvil el nombre se ajusta al ancho de pantalla */
   .hero-name {
-    font-size: min(27vw, 15svh);
+    font-size: 27vw;
     grid-row: 2;
     align-self: end;
   }
@@ -666,7 +785,7 @@
     grid-column: 1 / -1;
     grid-row: 1;
     justify-self: start;
-    max-width: min(7.5rem, 15svh);
+    max-width: 7.5rem;
   }
 
   .hero-line:nth-child(2) {
@@ -687,25 +806,8 @@
     gap: 0.1rem;
   }
 
-  /* Carrusel nativo: scroll horizontal con imán (scroll-snap), sin JavaScript */
-  .project-row {
-    display: flex;
-    gap: var(--space-sm);
-    margin-inline: calc(-1 * var(--gutter));
-    padding-inline: var(--gutter);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--gutter);
-    scrollbar-width: none;
-  }
-
-  .project-row::-webkit-scrollbar {
-    display: none;
-  }
-
-  .project-row li {
-    flex: 0 0 85%;
-    scroll-snap-align: start;
+  .experience-cols {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -714,33 +816,5 @@
   width: 100%;
   height: auto;
   border-radius: var(--radius-md);
-  border: 1px solid color-mix(in srgb, var(--tone-ink) 10%, transparent);
-}
-
-/* Móviles bajos (tipo iPhone SE): se compacta el hero para que siga cabiendo en una pantalla */
-@media (max-width: 720px) and (max-height: 740px) {
-  .hero-photo {
-    display: none;
-  }
-
-  .hero-grid {
-    grid-template-rows: 1fr auto auto;
-    row-gap: var(--space-sm);
-  }
-
-  .hero-name {
-    grid-row: 1;
-  }
-
-  .hero-role {
-    font-size: var(--fs-lg);
-  }
-
-  .hero-lead {
-    font-size: var(--fs-md);
-  }
-
-  .hero-actions {
-    margin-top: var(--space-sm);
-  }
+  border: 1px solid var(--line);
 }

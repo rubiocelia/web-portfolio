@@ -53,7 +53,7 @@
                 </a>
 
                 <ul class="nav-menu">
-                    <li><a href="../index.html#proyectos" aria-current="true">Proyectos</a></li>
+                    <li><a href="../index.html#todos-los-proyectos">Proyectos</a></li>
                     <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
                     <li><a href="../index.html#experiencia">Experiencia</a></li>
                     <li><a href="../index.html#contacto">Contacto</a></li>
@@ -95,18 +95,18 @@
 
             <p class="case-lead">
                 Una web para descubrir eventos culturales y de ocio y comprar entradas para una fecha concreta.
-                Empezamos con investigación de usuarios y un prototipo en Figma, y terminamos con una aplicación
-                completa en PHP y MySQL.
+                Empezamos estudiando a la competencia y a los usuarios, seguimos con un prototipo en Figma y
+                terminamos con una aplicación completa en PHP y MySQL.
             </p>
 
             <dl class="case-meta">
                 <div>
                     <dt>Rol</dt>
-                    <dd>Equipo de tres: investigación, diseño, desarrollo y portavoz del grupo</dd>
+                    <dd>Equipo de tres: investigación, paleta de color, desarrollo de cuatro secciones y portavoz del grupo</dd>
                 </div>
                 <div>
                     <dt>Herramientas</dt>
-                    <dd>Figma, PHP, MySQL, JavaScript, Bootstrap, FullCalendar, Leaflet</dd>
+                    <dd>Figma, PHP, MySQL, JavaScript, Bootstrap, FullCalendar, Leaflet, GitHub</dd>
                 </div>
                 <div>
                     <dt>Fecha</dt>
@@ -142,6 +142,34 @@
 
         </section>
 
+        <section class="container case-section" aria-label="Antes de diseñar">
+
+            <h2>Antes de diseñar</h2>
+
+            <div class="case-body">
+                <p>
+                    Empezamos por entender el mercado y a quién nos dirigíamos.
+                </p>
+                <h3>La competencia</h3>
+                <p>
+                    Analizamos Fever y Atrápalo, dos de las plataformas de entradas más usadas en España: qué hacían bien,
+                    dónde fallaban y qué hueco podía ocupar una web nueva.
+                </p>
+                <h3>Tres tipos de usuario</h3>
+                <p>
+                    Definimos tres grupos con necesidades distintas: jóvenes, familias y personas mayores. Para cada uno
+                    creamos un perfil de usuario con sus objetivos, motivaciones y frustraciones, que usamos después para
+                    tomar decisiones de diseño.
+                </p>
+                <h3>Del usuario al menú</h3>
+                <p>
+                    Con un <em>user story mapping</em> ordenamos todo lo que el usuario necesita hacer, de buscar un evento a
+                    tener la entrada en su perfil, y de ahí salió la estructura del menú y de las páginas.
+                </p>
+            </div>
+
+        </section>
+
         <section class="container case-section" aria-label="Guía de estilo y prototipo">
 
             <h2>Guía de estilo y prototipo</h2>
@@ -150,12 +178,12 @@
                 <p>
                     Antes de programar, diseñamos en Figma una guía de estilo y los mockups de las once pantallas: inicio,
                     eventos, ficha de evento, pago, inicio de sesión, registro, perfil, calendario, mis eventos, nosotros y
-                    contacto.
+                    contacto. Cada parte de la guía la propuso una persona y la aprobamos entre los tres.
                 </p>
                 <h3>Color</h3>
                 <p>
-                    Azules de marca para transmitir confianza en la compra, y amarillos de contraste para los títulos y las
-                    llamadas a la acción, que destacan sobre el azul oscuro.
+                    La paleta fue mi propuesta. Azules de marca para transmitir confianza en la compra, y amarillos de
+                    contraste para los títulos y las llamadas a la acción, que destacan sobre el azul oscuro.
                 </p>
                 <ul class="palette">
                 <li style="--swatch: #11446e"><strong>Marca</strong><code>#11446e</code></li>
@@ -186,11 +214,19 @@
                 <figure class="case-figure">
                     <img src="../assets/img/proyectos/eventium/figma-logo.webp" alt="Ficha del logo de Eventium en la guía de estilo: serpentinas en amarillo, azul y turquesa sobre la palabra EVENTIUM" width="900" height="575" loading="lazy" class="case-image">
                 </figure>
+                <h3>Decisiones con fundamento</h3>
+                <p>Revisamos el diseño con las leyes de UX, las heurísticas de Nielsen y las pautas WCAG. Algunos ejemplos:</p>
+                <ul>
+                <li>Menú con menos de siete opciones, para no saturar (ley de Miller).</li>
+                <li>Logo a la izquierda y botones de cuenta a la derecha, donde más se ven (efecto de posición en serie).</li>
+                <li>Formularios que solo piden los datos necesarios y avisan de los campos obligatorios.</li>
+                <li>Contraste y tamaño de texto pensados para que se lea bien, también para personas con dislexia, y texto alternativo en las imágenes de las tarjetas.</li>
+                <li>Una página de preguntas frecuentes como ayuda.</li>
+                </ul>
                 <figure class="case-figure">
                     <img src="../assets/img/proyectos/eventium/figma-ficha-evento.webp" alt="Mockup de la ficha de un evento: foto, descripción, información adicional, mapa y calendario de fechas con botón de compra" width="1440" height="1360" loading="lazy" class="case-image">
                     <figcaption>La ficha de evento en Figma: información, mapa y calendario con las entradas disponibles.</figcaption>
                 </figure>
-                <p class="todo">Pendiente: material de la investigación de usuarios que hicimos antes de la guía de estilo (encuestas, entrevistas o perfiles de usuario).</p>
             </div>
 
         </section>
@@ -210,6 +246,22 @@
                 <li>Las contraseñas se guardan cifradas con <code>password_hash</code>.</li>
                 <li>La compra pasa por una pasarela de pago simulada que valida los datos antes de confirmar.</li>
                 <li>El perfil muestra en un calendario las entradas compradas.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Mi parte del código">
+
+            <h2>Mi parte del código</h2>
+
+            <div class="case-body">
+                <p>Nos repartimos las páginas. Yo programé cuatro:</p>
+                <ul>
+                <li><strong>Inicio</strong>, con el buscador de eventos en tiempo real.</li>
+                <li><strong>Nosotros</strong>, con misión, visión y valores, contadores animados y un vídeo.</li>
+                <li><strong>Contacto</strong>, con el formulario y unas preguntas frecuentes agrupadas por temas en un acordeón.</li>
+                <li><strong>Mi cuenta</strong>: editar el perfil, ver las entradas próximas y pasadas, y un calendario con los eventos comprados. El botón para ver la entrada solo se activa cuando faltan quince días o menos para el evento.</li>
                 </ul>
             </div>
 
@@ -235,8 +287,22 @@
             <div class="case-body">
                 <p>
                     Éramos tres y yo hacía de portavoz: me encargaba de la comunicación con los profesores y de organizar las
-                    reuniones. Nos repartimos el trabajo, pero diseño y desarrollo pasaron por las manos de los tres, para que
-                    todos supiéramos hacer cualquier parte del proyecto.
+                    reuniones. Las ideas salían de reuniones presenciales y lluvias de ideas, y el código lo compartíamos en
+                    GitHub: cada parte entraba con un <em>pull request</em> que revisaba otra persona del equipo antes de unirla.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Qué haría después">
+
+            <h2>Qué haría después</h2>
+
+            <div class="case-body">
+                <p>
+                    Dejamos dos mejoras planteadas: recomendaciones de eventos según los gustos de cada usuario, con
+                    inteligencia artificial, y una aplicación móvil nativa. La primera es justo lo que estudio ahora en el
+                    máster de IA y Big Data.
                 </p>
             </div>
 

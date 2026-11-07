@@ -53,7 +53,7 @@
                 </a>
 
                 <ul class="nav-menu">
-                    <li><a href="../index.html#proyectos" aria-current="true">Proyectos</a></li>
+                    <li><a href="../index.html#todos-los-proyectos">Proyectos</a></li>
                     <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
                     <li><a href="../index.html#experiencia">Experiencia</a></li>
                     <li><a href="../index.html#contacto">Contacto</a></li>
@@ -95,13 +95,14 @@
 
             <p class="case-lead">
                 Web corporativa en WordPress para Edelco, un fabricante de herramientas abrasivas con sede en
-                Wunsiedel, en el norte de Baviera.
+                Wunsiedel, en el norte de Baviera. Partí de un tema ya existente y lo adapté a la identidad de la
+                marca.
             </p>
 
             <dl class="case-meta">
                 <div>
                     <dt>Rol</dt>
-                    <dd>Desarrollo en WordPress</dd>
+                    <dd>Personalización del tema y maquetación</dd>
                 </div>
                 <div>
                     <dt>Herramientas</dt>
@@ -119,12 +120,12 @@
 
         </header>
 
-        <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
-        <figure class="container case-cover">
-            <div class="media-placeholder">
-                <span>Captura pendiente: portada en escritorio y móvil</span>
+        <div class="container case-cover">
+            <div class="case-devices">
+                <img src="../assets/img/proyectos/edelco/portada-escritorio.webp" alt="Portada de Edelco en escritorio: chispas de una radial de fondo, el lema friends in abrasives y los botones Products y Download catalog" width="800" height="450" class="case-image" fetchpriority="high">
+                <img src="../assets/img/proyectos/edelco/portada-movil.webp" alt="La misma portada en móvil, con el menú recogido en un botón" width="780" height="1380" class="case-image" fetchpriority="high">
             </div>
-        </figure>
+        </div>
 
         <!-- ===========================
              ANÁLISIS
@@ -150,20 +151,35 @@
             <div class="case-body">
                 <p>
                     Una portada de una sola página recorre la presentación de la empresa, la carta de bienvenida de sus
-                    directores, las familias de producto, las certificaciones de calidad y el contacto.
+                    directores, las familias de producto, las certificaciones de calidad y el contacto. El catálogo en PDF
+                    está siempre a mano: como botón en la portada y destacado en el menú.
                 </p>
+                <figure class="case-figure">
+                    <img src="../assets/img/proyectos/edelco/familias.webp" alt="Listado de familias de producto en dos columnas, cada una con su imagen, su nombre y una flecha" width="800" height="332" loading="lazy" class="case-image">
+                    <figcaption>Las diez familias de producto, en dos columnas con imagen.</figcaption>
+                </figure>
             </div>
 
         </section>
 
-        <section class="container case-section" aria-label="Cómo lo hice">
+        <section class="container case-section" aria-label="Personalizar un tema">
 
-            <h2>Cómo lo hice</h2>
+            <h2>Personalizar un tema</h2>
 
             <div class="case-body">
                 <p>
-                    Partí de un WordPress básico, sin tema comercial, y diseñé todos los estilos a medida. Así la web tiene el
-                    aspecto que pedía la marca y no carga código de plantilla que no se usa.
+                    No empecé de cero: partí de un tema de WordPress que ya existía. El trabajo fue adaptarlo para que
+                    pareciera hecho a medida para la marca:
+                </p>
+                <ul>
+                <li>Tipografías de la marca: Barlow para el texto, Barlow Condensed para los títulos y una tipografía expresiva para el lema.</li>
+                <li>El azul marino corporativo en la cabecera y los títulos, y fotos de chispas que muestran el producto en uso.</li>
+                <li>Componentes ajustados al contenido, como el listado de familias o la franja de certificaciones.</li>
+                <li>Revisión del diseño en móvil, con el menú recogido en un botón.</li>
+                </ul>
+                <p>
+                    Saber personalizar un tema existente es tan útil como crear uno nuevo: es más rápido y barato para el
+                    cliente, y obliga a entender bien el código de otra persona antes de cambiarlo.
                 </p>
             </div>
 

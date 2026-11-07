@@ -76,15 +76,19 @@ toneSections.forEach((section) => toneObserver.observe(section));
 // ==========================
 
 const navLinks = document.querySelectorAll(".nav-menu a");
-const navSections = [...navLinks].map((link) => document.querySelector(link.hash));
+// Cada enlace se marca con su sección. Si el enlace apunta a otro sitio
+// (Proyectos lleva al índice de todos los proyectos), data-section dice qué sección vigila.
+const sectionId = (link) => link.dataset.section || link.hash.slice(1);
+const navSections = [...navLinks].map((link) => document.getElementById(sectionId(link)));
 
 const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
 
+      // En el inicio no se marca nada; en las demás secciones, su enlace
       navLinks.forEach((link) => {
-        if (link.hash === "#" + entry.target.id) {
+        if (sectionId(link) === entry.target.id) {
           link.setAttribute("aria-current", "true");
         } else {
           link.removeAttribute("aria-current");
@@ -95,6 +99,55 @@ const navObserver = new IntersectionObserver(
   { rootMargin: "-45% 0px -50% 0px" }
 );
 
-navSections.forEach((section) => {
+// También observamos el inicio: al volver arriba, se quita el subrayado
+const hero = document.querySelector("#inicio");
+
+[hero, ...navSections].forEach((section) => {
   if (section) navObserver.observe(section);
+});
+
+// ==========================
+// FILTROS DE PROYECTOS
+// Cada botón muestra solo las tarjetas de su categoría (data-category).
+// aria-pressed indica a lectores de pantalla qué filtro está activo.
+// ==========================
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectItems = document.querySelectorAll(".project-grid li");
+const filterStatus = document.querySelector("#filter-status");
+const projectEmpty = document.querySelector(".project-empty");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+    let visibles = 0;
+
+    filterButtons.forEach((btn) => btn.setAttribute("aria-pressed", btn === button));
+
+    projectItems.forEach((item) => {
+      const show = filter === "todos" || item.dataset.category === filter;
+      item.hidden = !show;
+      if (show) visibles++;
+    });
+
+    // Si el filtro no tiene proyectos, se muestra el mensaje de "en marcha"
+    projectEmpty.hidden = visibles > 0;
+    filterStatus.textContent = visibles > 0 ? `Mostrando ${visibles} proyectos` : projectEmpty.textContent.trim();
+  });
+});
+
+// ==========================
+// ESQUEMA DE REJILLA
+// Los botones cambian data-view en la figura y el CSS hace el resto.
+// ==========================
+
+document.querySelectorAll(".grid-demo").forEach((demo) => {
+  const buttons = demo.querySelectorAll(".grid-demo-controls button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      demo.dataset.view = button.dataset.view;
+      buttons.forEach((btn) => btn.setAttribute("aria-pressed", btn === button));
+    });
+  });
 });

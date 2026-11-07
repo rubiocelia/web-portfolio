@@ -53,7 +53,7 @@
                 </a>
 
                 <ul class="nav-menu">
-                    <li><a href="../index.html#proyectos" aria-current="true">Proyectos</a></li>
+                    <li><a href="../index.html#todos-los-proyectos">Proyectos</a></li>
                     <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
                     <li><a href="../index.html#experiencia">Experiencia</a></li>
                     <li><a href="../index.html#contacto">Contacto</a></li>
@@ -105,7 +105,7 @@
                 </div>
                 <div>
                     <dt>Herramientas</dt>
-                    <dd>HTML, CSS, JavaScript, API REST, Postman</dd>
+                    <dd>WordPress, PHP, HTML, CSS, JavaScript, API REST, Postman</dd>
                 </div>
                 <div>
                     <dt>Fecha</dt>
@@ -119,12 +119,12 @@
 
         </header>
 
-        <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
-        <figure class="container case-cover">
-            <div class="media-placeholder">
-                <span>Captura pendiente: portada en escritorio y móvil</span>
+        <div class="container case-cover">
+            <div class="case-devices">
+                <img src="../assets/img/proyectos/eagle/portada-escritorio.webp" alt="Portada de Eagle en escritorio: una trabajadora con casco y gafas de protección junto al lema We protect your eyes y el botón Ver productos" width="800" height="450" class="case-image" fetchpriority="high">
+                <img src="../assets/img/proyectos/eagle/portada-movil.webp" alt="La misma portada en móvil: la foto arriba y el lema y el botón debajo" width="780" height="1380" class="case-image" fetchpriority="high">
             </div>
-        </figure>
+        </div>
 
         <!-- ===========================
              ANÁLISIS
@@ -136,8 +136,12 @@
 
             <div class="case-body">
                 <p>
-                    La marca necesitaba transmitir a la vez protección y diseño. La web presenta tres familias de producto:
-                    gafas de protección, graduadas de seguridad y de sol.
+                    La marca necesitaba transmitir a la vez protección y diseño. La portada lo resume en tres ideas, lentes
+                    antivaho, lentes antirrayas y diseño italiano, y recuerda que las gafas cumplen la norma ISO 16321.
+                </p>
+                <p>
+                    El catálogo se organiza en cuatro familias: gafas de protección (transparentes, alta visibilidad, oscuras,
+                    polarizadas y de soldadura), gafas de protección graduadas, gafas de sol y accesorios.
                 </p>
             </div>
 
@@ -149,22 +153,44 @@
 
             <div class="case-body">
                 <p>
-                    Los productos no están escritos en el HTML: llegan desde una API. Antes de programar el frontend probé
-                    cada petición en Postman para conocer la estructura de los datos y los casos raros.
+                    Las fichas de producto no se escriben a mano. La información sale del sistema de catálogo de la marca a
+                    través de una API, y la web genera cada ficha a partir del identificador del producto, el mismo que aparece
+                    en la dirección: <code>/productos/1652169/…</code>.
                 </p>
-                <p class="todo">Pendiente: qué peticiones usabas y cómo se pintan los productos. Si añades una captura de Postman, que no se vea ninguna clave ni token.</p>
+                <p>
+                    Antes de programar el frontend probé las peticiones en Postman para conocer la estructura de los datos.
+                    Cada ficha muestra:
+                </p>
+                <figure class="case-figure">
+                    <img src="../assets/img/proyectos/eagle/ficha-producto.webp" alt="Ficha de un producto: galería de imágenes a la izquierda y nombre, descripción y características técnicas a la derecha" width="800" height="505" loading="lazy" class="case-image">
+                    <figcaption>Una ficha de producto: todo lo que se ve llega de la API.</figcaption>
+                </figure>
+                <ul>
+                <li>Galería de imágenes del producto.</li>
+                <li>Referencia y código EAN.</li>
+                <li>Descripción, especificaciones técnicas, usos recomendados y mantenimiento.</li>
+                <li>Certificaciones y tabla de características: tipo de lente, antivaho, antirrayas, filtro UV…</li>
+                <li>Medidas y datos de embalaje y logística.</li>
+                <li>Ficha técnica y declaración de conformidad en PDF.</li>
+                <li>Productos relacionados.</li>
+                </ul>
+                <p>
+                    La API también trae los textos traducidos, así que una misma plantilla sirve para los seis idiomas de la
+                    web: español, inglés, italiano, alemán, portugués y francés. La ventaja es que la marca actualiza un
+                    producto en un solo sitio y la web lo muestra en todos los idiomas sin tocar el código.
+                </p>
             </div>
 
         </section>
 
-        <section class="container case-section" aria-label="Detalles">
+        <section class="container case-section" aria-label="Un selector de gafas">
 
-            <h2>Detalles</h2>
+            <h2>Un selector de gafas</h2>
 
             <div class="case-body">
                 <p>
-                    Además del catálogo, la web incluye un selector que recomienda gafas según la actividad y está traducida a
-                    seis idiomas.
+                    Con más de cuarenta modelos, elegir no es fácil. Por eso la web tiene un selector: el usuario responde unas
+                    pocas preguntas sobre su actividad y en un minuto recibe el modelo que mejor encaja.
                 </p>
             </div>
 

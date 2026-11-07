@@ -29,19 +29,32 @@
   --tone-ink: var(--color-text);
   --tone-accent: var(--color-primary-ink);
 
+  /* COLORES SEMITRANSPARENTES
+     Se calculan aquí una sola vez a partir del tono, así que también
+     cambian solos con cada proyecto y con el modo oscuro.
+     En el resto del CSS solo se usa el nombre: var(--line), var(--accent-soft)... */
+
+  --line: color-mix(in srgb, var(--tone-ink) 12%, transparent); /* bordes y líneas finas */
+  --line-strong: color-mix(in srgb, var(--tone-ink) 20%, transparent); /* bordes de botones */
+  --text-soft: color-mix(in srgb, var(--tone-ink) 72%, transparent); /* textos secundarios */
+  --accent-soft: color-mix(in srgb, var(--tone-accent) 8%, transparent); /* fondos suaves */
+  --accent-faint: color-mix(in srgb, var(--tone-accent) 14%, transparent); /* columnas del esquema */
+  --accent-line: color-mix(in srgb, var(--tone-accent) 50%, transparent); /* bordes de color */
+  --header-bg: color-mix(in srgb, var(--tone-bg) 86%, transparent); /* cabecera translúcida */
+
   /* TIPOGRAFÍA */
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Hanken Grotesk", system-ui, sans-serif;
 
-  /* Escala fluida: crece con el ancho de pantalla entre un mínimo y un máximo */
+  /* Tamaños de escritorio. En tablet y móvil cambian en el bloque RESPONSIVE de abajo */
   --fs-xs: 0.8125rem;
   --fs-sm: 0.9375rem;
   --fs-md: 1.0625rem;
-  --fs-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
-  --fs-xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
-  --fs-2xl: clamp(2.5rem, 1.8rem + 3.4vw, 4.5rem);
-  --fs-hero: clamp(4rem, 1.5rem + 13vw, 13.5rem);
+  --fs-lg: 1.5rem;
+  --fs-xl: 2.75rem;
+  --fs-2xl: 4.5rem;
+  --fs-hero: 12rem;
 
   /* PESOS */
 
@@ -54,15 +67,16 @@
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
-  --space-lg: clamp(2rem, 1.5rem + 2vw, 3rem);
-  --space-xl: clamp(4rem, 3rem + 4vw, 7rem);
-  --space-section: clamp(5rem, 3.5rem + 7vw, 10rem);
+  --space-lg: 3rem;
+  --space-xl: 7rem;
+  --space-section: 10rem;
 
   /* LAYOUT */
 
   --container: 1240px;
-  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --gutter: 2.5rem; /* margen a los lados de la página */
   --header-height: 72px;
+  --header-offset: 6rem; /* altura del header + aire: para anclas y elementos fijos */
   --radius-sm: 6px;
   --radius-md: 14px;
 
@@ -72,6 +86,43 @@
   --transition-fast: 0.2s ease;
   --transition: 0.35s var(--ease-out);
   --transition-tone: 0.8s ease;
+}
+
+/* ===========================
+   RESPONSIVE
+   Mismos puntos de ruptura que la rejilla .gd de elEconomista.
+=========================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  :root {
+    --fs-lg: 1.375rem;
+    --fs-xl: 2.25rem;
+    --fs-2xl: 3.5rem;
+    --fs-hero: 8rem;
+
+    --space-lg: 2.5rem;
+    --space-xl: 5rem;
+    --space-section: 7rem;
+
+    --gutter: 2rem;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  :root {
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.75rem;
+    --fs-2xl: 2.5rem;
+    --fs-hero: 4.5rem;
+
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+    --space-section: 5rem;
+
+    --gutter: 1rem;
+  }
 }
 
 /* ===========================

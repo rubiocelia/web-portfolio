@@ -23,7 +23,7 @@
 
 /* Fallback para navegadores sin scroll-driven animations: lo pone main.js */
 .header.scrolled {
-  background-color: color-mix(in srgb, var(--tone-bg) 86%, transparent);
+  background-color: var(--header-bg);
   border-bottom-color: var(--color-border);
 }
 
@@ -38,7 +38,7 @@
 
 @keyframes header-solid {
   to {
-    background-color: color-mix(in srgb, var(--tone-bg) 86%, transparent);
+    background-color: var(--header-bg);
     border-bottom-color: var(--color-border);
   }
 }
@@ -68,7 +68,7 @@
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  gap: 2.5rem;
   font-size: var(--fs-sm);
 }
 
@@ -217,9 +217,9 @@
   place-items: center;
   aspect-ratio: 16 / 10;
   padding: var(--space-md);
-  border: 1px dashed color-mix(in srgb, var(--tone-accent) 45%, transparent);
+  border: 1px dashed var(--accent-line);
   border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--tone-accent) 6%, transparent);
+  background: var(--accent-soft);
   color: var(--tone-accent);
   font-size: var(--fs-sm);
   text-align: center;
@@ -251,9 +251,10 @@
    RESPONSIVE
 =========================== */
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   :root {
     --header-height: 100px; /* el menú ocupa dos filas */
+    --header-offset: 8rem;
   }
 
   .navbar {
@@ -279,4 +280,142 @@
   .nav-menu a {
     white-space: nowrap;
   }
+}
+
+/* ===========================
+   ESQUEMA DE REJILLA
+   Demo de la rejilla del rediseño de elEconomista.
+   Se usa en la portada (estática) y en su análisis (con botones).
+=========================== */
+
+.grid-demo {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.grid-demo figcaption {
+  font-size: var(--fs-xs);
+  color: var(--text-soft);
+}
+
+.grid-demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.grid-demo-controls button {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.grid-demo-controls button[aria-pressed="true"] {
+  background: var(--tone-accent);
+  border-color: var(--tone-accent);
+  color: var(--tone-bg);
+}
+
+/* El "marco" encoge para simular cada pantalla */
+.grid-demo-frame {
+  --cols: 12;
+  --gap: 0.5rem;
+
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: var(--space-sm);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition: max-width 0.5s var(--ease-out);
+}
+
+.grid-demo[data-view="tablet"] .grid-demo-frame {
+  --cols: 6;
+  max-width: 30rem;
+}
+
+.grid-demo[data-view="movil"] .grid-demo-frame {
+  --cols: 1;
+  max-width: 15rem;
+}
+
+/* Columnas de fondo: muestran la rejilla sobre la que se colocan los bloques */
+.grid-demo-cols,
+.grid-demo-layout {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: var(--gap);
+}
+
+.grid-demo-cols {
+  position: absolute;
+  inset: var(--space-sm);
+}
+
+.grid-demo-cols span {
+  background: var(--accent-faint);
+  border-radius: 3px;
+}
+
+.grid-demo[data-view="tablet"] .grid-demo-cols span:nth-child(n + 7),
+.grid-demo[data-view="movil"] .grid-demo-cols span:nth-child(n + 2) {
+  display: none;
+}
+
+.grid-demo-layout {
+  position: relative;
+}
+
+/* Cada bloque guarda sus columnas en escritorio (--d) y en tablet (--t) */
+.grid-demo-block {
+  grid-column: span var(--d);
+  min-height: var(--h);
+  padding: 0.5rem;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius-sm);
+  /* Fondo semitransparente: deja ver las columnas que hay debajo */
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+
+.grid-demo[data-view="tablet"] .grid-demo-block {
+  grid-column: span var(--t);
+}
+
+.grid-demo[data-view="movil"] .grid-demo-block {
+  grid-column: 1 / -1;
+  min-height: 4rem;
+}
+
+.grid-demo-block span {
+  display: block;
+  font-size: var(--fs-xs);
+  line-height: 1.3;
+  color: var(--tone-accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* En escritorio, como en la portada real, la apertura va en el centro:
+   el orden del HTML es apertura, mercados, última hora, y "order" los recoloca */
+.grid-demo[data-view="escritorio"] .grid-demo-block {
+  order: var(--o, 0);
+}
+
+/* Hueco de publicidad: rayado y con borde discontinuo */
+.grid-demo-block--ad {
+  border-style: dashed;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--accent-soft) 0 6px,
+    transparent 6px 12px
+  );
 }
