@@ -198,6 +198,12 @@
   --tone-accent: #4d6a5c;
 }
 
+:root[data-tone="volaris"] {
+  --tone-bg: #eef7f4;
+  --tone-ink: #0b1220;
+  --tone-accent: #027a6a; /* el turquesa del club, oscurecido para pasar contraste AA */
+}
+
 :root.dark-mode[data-tone] {
   --tone-bg: var(--color-background);
   --tone-ink: var(--color-text);
@@ -233,4 +239,8 @@
 
 :root.dark-mode[data-tone="equilibria"] {
   --tone-accent: #a5c2b3;
+}
+
+:root.dark-mode[data-tone="volaris"] {
+  --tone-accent: #3dd6bf;
 }

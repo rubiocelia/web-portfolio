@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es" data-tone="volaris">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volaris Volleyball · Celia Rubio</title>
+    <meta name="description" content="Análisis de Volaris Volleyball, proyecto personal: la web de un club de voleibol pensada desde las preguntas reales de las familias.">
+    <link rel="canonical" href="https://rubiocelia.github.io/web-portfolio/proyectos/volaris-volleyball.html">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+
+    <!-- Vista previa al compartir el enlace (LinkedIn, WhatsApp...) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Volaris Volleyball, la web que un club necesita · Celia Rubio">
+    <meta property="og:description" content="Análisis de Volaris Volleyball, proyecto personal: la web de un club de voleibol pensada desde las preguntas reales de las familias.">
+    <meta property="og:url" content="https://rubiocelia.github.io/web-portfolio/proyectos/volaris-volleyball.html">
+    <meta property="og:image" content="https://rubiocelia.github.io/web-portfolio/assets/img/og-portada.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tema: se aplica antes de pintar para que no parpadee -->
+    <script>
+        (function () {
+            let theme = null;
+            try {
+                theme = localStorage.getItem("theme");
+            } catch (error) { }
+
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            if (theme === "dark" || (!theme && prefersDark)) {
+                document.documentElement.classList.add("dark-mode");
+            }
+        })();
+    </script>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..700;1,9..144,100..700&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+</head>
+
+<body>
+
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <header class="header">
+
+        <div class="container">
+
+            <nav class="navbar" aria-label="Principal">
+
+                <a href="../index.html" class="wordmark" aria-label="Celia Rubio, ir al inicio">
+                    Celia <span>Rubio</span>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="../index.html#todos-los-proyectos">Proyectos</a></li>
+                    <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+                    <li><a href="../index.html#experiencia">Experiencia</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                </ul>
+
+                <button class="theme-btn" type="button" aria-label="Activar modo oscuro">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                    </svg>
+                </button>
+
+            </nav>
+
+        </div>
+
+        <span class="progress" aria-hidden="true"></span>
+
+    </header>
+
+    <main id="contenido">
+
+        <!-- ===========================
+             CABECERA DEL PROYECTO
+        =========================== -->
+
+        <header class="container case-hero">
+
+            <a href="../index.html#proyectos" class="case-back text-link">Volver a proyectos</a>
+
+            <p class="case-type">Proyecto personal</p>
+
+            <h1 class="case-title">Volaris Volleyball, la web que un club necesita</h1>
+
+            <p class="case-lead">
+                La web de un club de voleibol inventado, pensada a partir de lo que de verdad preguntan las
+                familias: en qué equipo juega mi hijo, cuándo entrena, cuánto cuesta y cómo se apunta.
+            </p>
+
+            <dl class="case-meta">
+                <div>
+                    <dt>Rol</dt>
+                    <dd>Diseño y desarrollo</dd>
+                </div>
+                <div>
+                    <dt>Herramientas</dt>
+                    <dd>HTML, CSS, JavaScript</dd>
+                </div>
+                <div>
+                    <dt>Fecha</dt>
+                    <dd>2026</dd>
+                </div>
+            </dl>
+
+            <div class="case-links">
+                <a href="https://rubiocelia.github.io/VolarisVolleyball/" class="btn" target="_blank" rel="noopener">Ver la web</a>
+                <a href="https://github.com/rubiocelia/VolarisVolleyball" class="btn btn-outline" target="_blank" rel="noopener">Ver el código</a>
+            </div>
+
+        </header>
+
+        <div class="container case-cover">
+            <div class="case-devices">
+                <img src="../assets/img/proyectos/volaris/portada-escritorio.webp" alt="Portada de Volaris Volleyball en escritorio: foto oscurecida de dos jugadoras, el titular Saltamos juntos, ganamos juntos y las cifras del club" width="1440" height="810" class="case-image" fetchpriority="high">
+                <img src="../assets/img/proyectos/volaris/portada-movil.webp" alt="La misma portada en móvil, con el titular, los botones y el menú recogido" width="780" height="1380" class="case-image" fetchpriority="high">
+            </div>
+        </div>
+
+        <!-- ===========================
+             ANÁLISIS
+        =========================== -->
+
+        <section class="container case-section" aria-label="De dónde sale">
+
+            <h2>De dónde sale</h2>
+
+            <div class="case-body">
+                <p>
+                    Fui entrenadora de voleibol durante cuatro temporadas, y cada septiembre las familias hacían las mismas
+                    preguntas por WhatsApp: en qué categoría entra, qué días entrena, dónde y cuánto cuesta. La respuesta
+                    casi nunca estaba clara en la web del club.
+                </p>
+                <p>
+                    Así que me inventé un club, Volaris, y diseñé la web que me habría gustado tener: la que responde esas
+                    preguntas antes de que nadie tenga que hacerlas. El club y sus datos son ficticios.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Una sección por pregunta">
+
+            <h2>Una sección por pregunta</h2>
+
+            <div class="case-body">
+                <ul>
+                <li><strong>¿En qué categoría juega?</strong> Un buscador: eliges el año de nacimiento y te dice el equipo, los días, la sede y el precio.</li>
+                <li><strong>¿Cuándo y dónde?</strong> Una tabla de horarios por categoría y las dos sedes con su dirección.</li>
+                <li><strong>¿Cuánto cuesta?</strong> Tres cuotas mensuales, la matrícula con la equipación incluida y el descuento para hermanos.</li>
+                <li><strong>¿Cómo me apunto?</strong> Tres pasos y unas preguntas frecuentes.</li>
+                </ul>
+                <figure class="case-figure">
+                    <img src="../assets/img/proyectos/volaris/buscador.webp" alt="Buscador de categoría: el año 2012 elegido y el resultado Cadete, competición, lunes, miércoles y viernes de 19:00 a 20:30, Pabellón Los Álamos, 45 euros al mes" width="1440" height="443" loading="lazy" class="case-image">
+                    <figcaption>El buscador responde la pregunta que más llega a un club.</figcaption>
+                </figure>
+                <p>
+                    Los logros, que en muchas webs de clubes acaban escondidos en un párrafo, tienen su propia franja, y el
+                    botón de inscripción está siempre en el menú.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Un solo sitio para los datos">
+
+            <h2>Un solo sitio para los datos</h2>
+
+            <div class="case-body">
+                <p>
+                    Las siete categorías están en una sola lista en JavaScript. De ella salen el buscador, las tarjetas de
+                    los equipos y la tabla de horarios, así que para cambiar un horario solo hay que tocarlo en un sitio:
+                </p>
+                <pre><code>const categorias = [
+  { nombre: "Infantil", desde: 2013, hasta: 2014, tipo: "Competición",
+    dias: "Lunes, miércoles y viernes", hora: "17:30 – 19:00", precio: 45 },
+  // ...
+];
+
+const categoria = categorias.find((c) =&gt; year &gt;= c.desde &amp;&amp; year &lt;= c.hasta);</code></pre>
+                <figure class="case-figure">
+                    <img src="../assets/img/proyectos/volaris/precios.webp" alt="Sección de precios: tres tarjetas con 35, 45 y 50 euros al mes y las condiciones debajo" width="1440" height="777" loading="lazy" class="case-image">
+                    <figcaption>Precios sin letra pequeña.</figcaption>
+                </figure>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Detalles técnicos">
+
+            <h2>Detalles técnicos</h2>
+
+            <div class="case-body">
+                <ul>
+                <li>Animaciones al hacer scroll solo con CSS (<em>scroll-driven animations</em>), dentro de <code>@supports</code> para que la web se vea igual en navegadores que no las soportan.</li>
+                <li>Preguntas frecuentes con <code>&lt;details&gt;</code>: se abren sin JavaScript y funcionan con teclado.</li>
+                <li>El resultado del buscador se anuncia a los lectores de pantalla con <code>aria-live</code>, y el menú móvil indica si está abierto con <code>aria-expanded</code>.</li>
+                <li>Fotos en WebP: de 9 MB a 75 KB entre las dos.</li>
+                <li>Sin librerías: HTML, CSS y JavaScript.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- ===========================
+             SIGUIENTE PROYECTO
+        =========================== -->
+
+        <nav class="container case-next" aria-label="Siguiente proyecto">
+            <span>Siguiente proyecto</span>
+            <a href="rediseno-eleconomista.html">Rediseño de elEconomista.es</a>
+        </nav>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="container">
+            <p>© 2026 Celia Rubio</p>
+            <p>
+                Hecha con HTML, CSS y JavaScript.
+                <a href="https://github.com/rubiocelia/web-portfolio" class="text-link" target="_blank"
+                    rel="noopener">Ver el código</a>
+            </p>
+        </div>
+
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>
