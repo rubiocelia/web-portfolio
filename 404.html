@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada · Celia Rubio</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="/web-portfolio/assets/img/favicon.svg" type="image/svg+xml">
+
+    <!-- Tema: se aplica antes de pintar para que no parpadee -->
+    <script>
+        (function () {
+            let theme = null;
+            try {
+                theme = localStorage.getItem("theme");
+            } catch (error) { }
+
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            if (theme === "dark" || (!theme && prefersDark)) {
+                document.documentElement.classList.add("dark-mode");
+            }
+        })();
+    </script>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..700;1,9..144,100..700&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS
+         Rutas absolutas: GitHub Pages enseña esta página en cualquier dirección
+         que no exista, así que las rutas relativas no siempre funcionarían -->
+    <link rel="stylesheet" href="/web-portfolio/css/variables.css">
+    <link rel="stylesheet" href="/web-portfolio/css/base.css">
+    <link rel="stylesheet" href="/web-portfolio/css/components.css">
+
+    <style>
+        /* ===========================
+           PÁGINA 404
+        =========================== */
+
+        .error-page {
+            min-height: 100svh;
+            display: grid;
+            place-content: center;
+            gap: var(--space-md);
+            text-align: center;
+        }
+
+        .error-code {
+            font-family: var(--font-display);
+            font-size: var(--fs-hero);
+            font-weight: 300;
+            line-height: 1;
+            color: var(--color-primary-ink);
+        }
+
+        .error-page .btn {
+            justify-self: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container error-page">
+
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1>Esta página no existe</h1>
+        <p>Puede que el enlace esté mal escrito o que la página se haya movido.</p>
+        <a href="/web-portfolio/" class="btn">Volver al inicio</a>
+
+    </main>
+
+</body>
+
+</html>

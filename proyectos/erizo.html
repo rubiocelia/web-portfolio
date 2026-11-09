@@ -5,8 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erizo · Celia Rubio</title>
-    <meta name="description" content="Análisis de la web corporativa de Erizo, primera fábrica de limas de España, hecha en WordPress.">
+    <meta name="description" content="Análisis del diseño en Figma y la web en WordPress de Erizo, primera fábrica de limas de España.">
+    <link rel="canonical" href="https://rubiocelia.github.io/web-portfolio/proyectos/erizo.html">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+
+    <!-- Vista previa al compartir el enlace (LinkedIn, WhatsApp...) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Erizo, casi cien años de historia en WordPress · Celia Rubio">
+    <meta property="og:description" content="Análisis del diseño en Figma y la web en WordPress de Erizo, primera fábrica de limas de España.">
+    <meta property="og:url" content="https://rubiocelia.github.io/web-portfolio/proyectos/erizo.html">
+    <meta property="og:image" content="https://rubiocelia.github.io/web-portfolio/assets/img/og-portada.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- Tema: se aplica antes de pintar para que no parpadee -->
     <script>
@@ -94,8 +103,8 @@
             <h1 class="case-title">Erizo, casi cien años de historia en WordPress</h1>
 
             <p class="case-lead">
-                Diseño y web corporativa en WordPress para Erizo, la primera fábrica de limas de España, fundada en
-                Tolosa en 1927.
+                Diseño en Figma y web corporativa en WordPress para Erizo, la primera fábrica de limas de España,
+                fundada en Tolosa en 1927.
             </p>
 
             <dl class="case-meta">
@@ -109,21 +118,18 @@
                 </div>
                 <div>
                     <dt>Fecha</dt>
-                    <dd>2024 – 2025</dd>
+                    <dd>2024</dd>
                 </div>
             </dl>
 
             <div class="case-links">
-                <a href="https://www.erizo1927.com/" class="btn" target="_blank" rel="noopener">Ver la web</a>
+                <a href="https://www.erizo1927.com/" class="btn" target="_blank" rel="noopener">Ver la web actual</a>
             </div>
 
         </header>
 
-        <!-- TODO: sustituir por <img> cuando tengas la captura (ver la guía de capturas) -->
         <figure class="container case-cover">
-            <div class="media-placeholder">
-                <span>Captura pendiente: tu versión de la portada</span>
-            </div>
+            <img src="../assets/img/proyectos/erizo/figma-productos.webp" alt="Mockup en Figma del catálogo de Erizo: menú negro con el logo amarillo, pestañas amarillas con las familias de limas, una barra azul de subfamilias y tarjetas de producto" width="1440" height="870" class="case-image" fetchpriority="high">
         </figure>
 
         <!-- ===========================
@@ -136,34 +142,78 @@
 
             <div class="case-body">
                 <p>
-                    La web presenta las cuatro gamas de la empresa (limas y escofinas, brocas para metal, herramientas de
-                    corte y brocas para construcción), su historia y el catálogo general en PDF, en seis idiomas.
+                    Erizo fabrica limas y escofinas desde 1927. La web tenía que contar esa historia y, sobre todo, ordenar
+                    un catálogo muy técnico: cinco familias (limas de mecánico, limas especiales, limas para sierras,
+                    escofinas y mangos), cada una con sus subfamilias y decenas de referencias.
                 </p>
             </div>
 
         </section>
 
-        <section class="container case-section" aria-label="Una nota">
+        <section class="container case-section" aria-label="Una identidad que sale del logo">
 
-            <h2>Una nota</h2>
+            <h2>Una identidad que sale del logo</h2>
 
             <div class="case-body">
                 <p>
-                    La web se ha actualizado desde que la hice, así que lo que se ve hoy no es exactamente mi versión.
+                    La paleta sale directamente del logo: el amarillo del erizo como color principal, el negro como
+                    secundario y un azul eléctrico de contraste para los botones y el pie. Son colores muy saturados, que
+                    recuerdan a las herramientas y a la señalética de un taller.
                 </p>
-                <p class="todo">Pendiente: capturas de tu versión. Si no las guardaste, puedes buscarla en web.archive.org con la fecha en que la entregaste.</p>
+                <ul class="palette">
+                <li style="--swatch: #f8d819"><strong>Primario</strong><code>#f8d819</code></li>
+                <li style="--swatch: #000000"><strong>Secundario</strong><code>#000000</code></li>
+                <li style="--swatch: #0263f5"><strong>Contraste</strong><code>#0263f5</code></li>
+                <li style="--swatch: #ffffff"><strong>Fondo</strong><code>#ffffff</code></li>
+                </ul>
+                <h3>Tipografía</h3>
+                <p>
+                    Fjalla One, condensada y en mayúsculas, para los títulos y el menú. Para el texto, dos monoespaciadas:
+                    Anonymous Pro en el titular grande y Space Mono en el cuerpo. Recuerdan a las referencias grabadas en
+                    las limas y a las fichas técnicas, y dan a una marca centenaria un aire actual.
+                </p>
+                <figure class="case-figure">
+                    <img src="../assets/img/proyectos/erizo/figma-portada.webp" alt="Mockup de la portada: lema en amarillo, accesos a las familias de producto y bloques en negro con fotos de la fábrica histórica" width="1440" height="1171" loading="lazy" class="case-image">
+                    <figcaption>La portada en Figma: el lema, accesos directos a las familias y la historia de la fábrica.</figcaption>
+                </figure>
             </div>
 
         </section>
 
-        <section class="container case-section" aria-label="Cómo lo hice">
+        <section class="container case-section" aria-label="Ordenar un catálogo técnico">
 
-            <h2>Cómo lo hice</h2>
+            <h2>Ordenar un catálogo técnico</h2>
 
             <div class="case-body">
                 <p>
-                    El proyecto completo pasó por mis manos: primero el diseño en Figma y después el desarrollo en WordPress,
-                    con los estilos hechos a medida.
+                    El reto principal era que alguien encontrara una lima concreta entre cientos sin perderse. Lo resolví
+                    con tres niveles de navegación:
+                </p>
+                <ul>
+                <li><strong>Familias</strong>, en pestañas amarillas bajo el menú, que se despliegan con una flecha.</li>
+                <li><strong>Subfamilias</strong>, en una barra azul que aparece al abrir una familia.</li>
+                <li><strong>Productos</strong>, en tarjetas con la imagen, el nombre y un botón para ver la ficha.</li>
+                </ul>
+                <p>
+                    La ficha de cada producto muestra la descripción y una tabla con todas sus referencias: medidas, tipo
+                    de picado, grano, longitud, stock y ficha en PDF.
+                </p>
+                <figure class="case-figure">
+                    <img src="../assets/img/proyectos/erizo/figma-ficha.webp" alt="Mockup de la ficha de una lima de mecánico: imagen del producto, título, descripción y el comienzo de la tabla de referencias" width="1440" height="700" loading="lazy" class="case-image">
+                </figure>
+            </div>
+
+        </section>
+
+        <section class="container case-section" aria-label="Del diseño a WordPress">
+
+            <h2>Del diseño a WordPress</h2>
+
+            <div class="case-body">
+                <p>
+                    Después del diseño desarrollé la web en WordPress, con los estilos hechos a medida para respetar la
+                    identidad. Desde entonces la web se ha actualizado, así que lo que se ve hoy en erizo1927.com ya no es
+                    exactamente mi versión: por eso este análisis enseña el diseño original.
                 </p>
             </div>
 

@@ -181,9 +181,9 @@
 }
 
 :root[data-tone="erizo"] {
-  --tone-bg: #f0efed;
-  --tone-ink: #1f1d1b;
-  --tone-accent: #5b4d40;
+  --tone-bg: #fbf6dc;
+  --tone-ink: #1a1a1a;
+  --tone-accent: #0050c8; /* el azul de la marca, oscurecido para pasar contraste AA */
 }
 
 :root[data-tone="qqservicios"] {
@@ -224,7 +224,7 @@
 }
 
 :root.dark-mode[data-tone="erizo"] {
-  --tone-accent: #cdbba7;
+  --tone-accent: #f8d819;
 }
 
 :root.dark-mode[data-tone="qqservicios"] {
