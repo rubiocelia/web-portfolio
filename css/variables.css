@@ -41,6 +41,8 @@
   --accent-faint: color-mix(in srgb, var(--tone-accent) 14%, transparent); /* columnas del esquema */
   --accent-line: color-mix(in srgb, var(--tone-accent) 50%, transparent); /* bordes de color */
   --header-bg: color-mix(in srgb, var(--tone-bg) 86%, transparent); /* cabecera translúcida */
+  --hero-glow: color-mix(in srgb, var(--color-primary-light) 38%, transparent); /* fondo del hero */
+  --hero-glow-soft: color-mix(in srgb, var(--color-primary-light) 22%, transparent);
 
   /* TIPOGRAFÍA */
 
@@ -132,6 +134,8 @@
 =========================== */
 
 :root.dark-mode {
+  --hero-glow: color-mix(in srgb, var(--color-primary) 14%, transparent); /* en oscuro, más tenue */
+  --hero-glow-soft: color-mix(in srgb, var(--color-primary) 7%, transparent);
   --color-primary-ink: #a5b8af;
   --color-primary-wash: #24302b;
 

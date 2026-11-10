@@ -10,9 +10,41 @@
 /* En tablet y móvil el hero mide lo que ocupa su contenido.
    En escritorio (más abajo, en @media min-width: 993px) ocupa exactamente la primera pantalla. */
 .hero {
+  position: relative;
+  isolation: isolate; /* el fondo (z-index: -1) se queda dentro del hero */
   display: flex;
   padding-top: 10rem;
   padding-bottom: var(--space-xl);
+}
+
+/* Fondo muy suave: dos manchas de luz difuminadas que unen la ilustración,
+   el nombre y el texto en una sola composición. Son degradados, no imágenes,
+   así que no pesan nada. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 50% 55% at 70% 32%, var(--hero-glow), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 20% 80%, var(--hero-glow-soft), transparent 70%);
+  animation: hero-glow 18s ease-in-out infinite alternate;
+}
+
+/* En móvil la ilustración va arriba a la izquierda: la luz la sigue */
+@media (max-width: 768px) {
+  .hero::before {
+    background:
+      radial-gradient(ellipse 80% 35% at 25% 25%, var(--hero-glow), transparent 70%),
+      radial-gradient(ellipse 70% 30% at 80% 80%, var(--hero-glow-soft), transparent 70%);
+  }
+}
+
+/* Se mueve muy despacio, casi sin notarse */
+@keyframes hero-glow {
+  to {
+    transform: translate(-2%, 3%) scale(1.05);
+  }
 }
 
 .hero-grid {
