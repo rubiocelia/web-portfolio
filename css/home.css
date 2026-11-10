@@ -12,6 +12,7 @@
 .hero {
   position: relative;
   isolation: isolate; /* el fondo (z-index: -1) se queda dentro del hero */
+  overflow: clip; /* la luz se mueve y crece un poco: así nunca se sale y no aparece scroll lateral */
   display: flex;
   padding-top: 10rem;
   padding-bottom: var(--space-xl);
