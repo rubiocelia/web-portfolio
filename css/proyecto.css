@@ -356,3 +356,11 @@
   gap: var(--space-sm);
   align-items: start;
 }
+
+.case-links-label {
+  flex-basis: 100%;
+  max-width: none;
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--text-soft);
+}

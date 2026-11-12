@@ -174,10 +174,6 @@
                     Toda la maquetación de la web dependía de Bootstrap. Funcionaba, pero cargaba muchas reglas que no se
                     usaban y obligaba a pensar cada bloque dentro de las columnas del framework.
                 </p>
-                <p>
-                    Para no mostrar el diseño real, aquí no hay capturas: el esquema de arriba explica el sistema con
-                    bloques genéricos.
-                </p>
             </div>
 
         </section>
@@ -188,50 +184,17 @@
 
             <div class="case-body">
                 <p>
-                    Bootstrap deja paso a una rejilla propia con CSS Grid, basada en la clase <code>.gd</code>: 12 columnas en
-                    escritorio, 6 en tablet y 1 en móvil. Las rejillas se anidan, así que la portada, cada bloque de noticias
-                    y el contenido de cada noticia usan el mismo sistema y quedan alineados sin clases extra.
+                    Bootstrap deja paso a una rejilla propia con CSS Grid: 12 columnas en escritorio, 6 en tablet y 1 en
+                    móvil. Las rejillas se anidan, así que la portada, cada bloque de noticias y el contenido de cada noticia
+                    usan el mismo sistema y quedan alineados.
                 </p>
                 <p>
                     El motivo es la libertad de diseño: en un periódico, cada noticia puede necesitar un tamaño distinto
-                    según su importancia, y las columnas fijas de un framework se quedaban cortas. Además, la web ya no carga
-                    ninguna hoja de estilos de Bootstrap.
+                    según su importancia, y con las clases de Bootstrap teníamos que ajustarnos a lo que ofrecía el
+                    framework. Ahora diseñamos lo que necesitamos y la web ya no carga ninguna hoja de estilos de Bootstrap.
                 </p>
                 <p>
-                    Este es un fragmento simplificado de la rejilla. La clase <code>.gd</code> crea la rejilla, y cada bloque
-                    dice cuántas columnas ocupa en escritorio (<code>.gd-8</code>) y en tablet (<code>.gd-md-6</code>):
-                </p>
-                <pre><code>/* Rejilla base: 12 columnas */
-.gd {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1.875rem;
-}
-
-/* Cuántas columnas ocupa cada bloque */
-.gd-4 { grid-column: span 4; }
-.gd-8 { grid-column: span 8; }
-
-/* Tablet: 6 columnas */
-@media screen and (max-width: 992px) {
-  .gd { grid-template-columns: repeat(6, 1fr); }
-  .gd-md-6 { grid-column: span 6; }
-}
-
-/* Móvil: una sola columna */
-@media screen and (max-width: 768px) {
-  .gd { grid-template-columns: 1fr; }
-}</code></pre>
-                <p>Y así se usa en el HTML:</p>
-                <pre><code>&lt;div class="gd"&gt;
-  &lt;section class="gd-8 gd-md-6"&gt;Noticias de sección&lt;/section&gt;
-  &lt;aside class="gd-4 gd-md-6"&gt;Opinión&lt;/aside&gt;
-&lt;/div&gt;</code></pre>
-                <p>
-                    Las clases siguen la misma lógica que las de Bootstrap (<code>.gd-8</code> como <code>.col-8</code>,
-                    <code>.gd-md-6</code> como <code>.col-md-6</code>), así que el cambio de un sistema a otro es sencillo para
-                    todo el equipo. En móvil todo pasa a una columna, salvo la cabecera y la barra lateral, que mantienen su
-                    propia rejilla.
+                    En móvil todo pasa a una columna, salvo la cabecera y la barra lateral, que mantienen su propia rejilla.
                 </p>
             </div>
 
