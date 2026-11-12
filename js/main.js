@@ -1,7 +1,5 @@
 // ==========================
 // HEADER
-// Solo hace falta en navegadores sin scroll-driven animations:
-// en los demás el fondo del header lo controla CSS.
 // ==========================
 
 const header = document.querySelector(".header");
@@ -18,8 +16,6 @@ if (!CSS.supports("animation-timeline: scroll()")) {
 
 // ==========================
 // MODO OSCURO
-// La clase va en <html>; el script del <head> ya la ha puesto
-// al cargar si tocaba. Aquí solo gestionamos el botón.
 // ==========================
 
 const root = document.documentElement;
@@ -38,7 +34,6 @@ themeBtn.addEventListener("click", () => {
   try {
     localStorage.setItem("theme", root.classList.contains("dark-mode") ? "dark" : "light");
   } catch (error) {
-    // Sin almacenamiento (modo privado): el cambio vale para esta visita
   }
 
   updateThemeButton();
@@ -46,8 +41,6 @@ themeBtn.addEventListener("click", () => {
 
 // ==========================
 // TONO POR PROYECTO
-// Cuando un proyecto cruza la mitad de la pantalla, su data-tone
-// pasa a <html> y las variables de color de toda la página cambian.
 // ==========================
 
 const toneSections = document.querySelectorAll("[data-tone]");
@@ -64,7 +57,6 @@ const toneObserver = new IntersectionObserver(
       }
     });
   },
-  // Franja estrecha en el centro de la pantalla: solo cuenta lo que está en medio
   { rootMargin: "-45% 0px -45% 0px" }
 );
 
@@ -72,12 +64,9 @@ toneSections.forEach((section) => toneObserver.observe(section));
 
 // ==========================
 // MENÚ ACTIVO
-// Marca en el menú la sección que se está viendo.
 // ==========================
 
 const navLinks = document.querySelectorAll(".nav-menu a");
-// Cada enlace se marca con su sección. Si el enlace apunta a otro sitio
-// (Proyectos lleva al índice de todos los proyectos), data-section dice qué sección vigila.
 const sectionId = (link) => link.dataset.section || link.hash.slice(1);
 const navSections = [...navLinks].map((link) => document.getElementById(sectionId(link)));
 
@@ -86,7 +75,6 @@ const navObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
 
-      // En el inicio no se marca nada; en las demás secciones, su enlace
       navLinks.forEach((link) => {
         if (sectionId(link) === entry.target.id) {
           link.setAttribute("aria-current", "true");
@@ -99,7 +87,6 @@ const navObserver = new IntersectionObserver(
   { rootMargin: "-45% 0px -50% 0px" }
 );
 
-// También observamos el inicio: al volver arriba, se quita el subrayado
 const hero = document.querySelector("#inicio");
 
 [hero, ...navSections].forEach((section) => {
@@ -108,8 +95,6 @@ const hero = document.querySelector("#inicio");
 
 // ==========================
 // FILTROS DE PROYECTOS
-// Cada botón muestra solo las tarjetas de su categoría (data-category).
-// aria-pressed indica a lectores de pantalla qué filtro está activo.
 // ==========================
 
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -130,7 +115,6 @@ filterButtons.forEach((button) => {
       if (show) visibles++;
     });
 
-    // Si el filtro no tiene proyectos, se muestra el mensaje de "en marcha"
     projectEmpty.hidden = visibles > 0;
     filterStatus.textContent = visibles > 0 ? `Mostrando ${visibles} proyectos` : projectEmpty.textContent.trim();
   });
@@ -138,7 +122,6 @@ filterButtons.forEach((button) => {
 
 // ==========================
 // ESQUEMA DE REJILLA
-// Los botones cambian data-view en la figura y el CSS hace el resto.
 // ==========================
 
 document.querySelectorAll(".grid-demo").forEach((demo) => {

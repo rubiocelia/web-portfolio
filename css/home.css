@@ -1,26 +1,24 @@
 /* ===========================
    HOME
-   Estilos que solo usa la portada (index.html).
 =========================== */
 
 /* ===========================
    HERO
 =========================== */
 
-/* En tablet y móvil el hero mide lo que ocupa su contenido.
-   En escritorio (más abajo, en @media min-width: 993px) ocupa exactamente la primera pantalla. */
 .hero {
+
+  --hero-glow: color-mix(in srgb, var(--color-primary-light) 38%, transparent);
+  --hero-glow-soft: color-mix(in srgb, var(--color-primary-light) 22%, transparent);
+
   position: relative;
-  isolation: isolate; /* el fondo (z-index: -1) se queda dentro del hero */
-  overflow: clip; /* la luz se mueve y crece un poco: así nunca se sale y no aparece scroll lateral */
+  isolation: isolate;
+  overflow: clip;
   display: flex;
   padding-top: 10rem;
   padding-bottom: var(--space-xl);
 }
 
-/* Fondo muy suave: dos manchas de luz difuminadas que unen la ilustración,
-   el nombre y el texto en una sola composición. Son degradados, no imágenes,
-   así que no pesan nada. */
 .hero::before {
   content: "";
   position: absolute;
@@ -32,7 +30,6 @@
   animation: hero-glow 18s ease-in-out infinite alternate;
 }
 
-/* En móvil la ilustración va arriba a la izquierda: la luz la sigue */
 @media (max-width: 768px) {
   .hero::before {
     background:
@@ -41,7 +38,11 @@
   }
 }
 
-/* Se mueve muy despacio, casi sin notarse */
+:root.dark-mode .hero {
+  --hero-glow: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  --hero-glow-soft: color-mix(in srgb, var(--color-primary) 7%, transparent);
+}
+
 @keyframes hero-glow {
   to {
     transform: translate(-2%, 3%) scale(1.05);
@@ -51,7 +52,7 @@
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr auto; /* el nombre ocupa el espacio libre y el texto va abajo */
+  grid-template-rows: 1fr auto;
   column-gap: var(--gutter);
   row-gap: var(--space-lg);
   align-self: stretch;
@@ -71,8 +72,6 @@
   animation: name-in 1.6s var(--ease-out) both;
 }
 
-/* "Rubio" entra un poco después y desplazado: la composición asimétrica
-   es lo que hace que no parezca una cabecera centrada cualquiera */
 .hero-line:nth-child(2) {
   margin-left: 0.9em;
   font-style: italic;
@@ -80,8 +79,6 @@
   animation-delay: 0.15s;
 }
 
-/* Fraunces es una fuente variable: animamos su grosor real,
-   de muy fina a su peso final, mientras se cierra el espaciado */
 @keyframes name-in {
   from {
     opacity: 0;
@@ -100,9 +97,8 @@
   grid-row: 1;
 }
 
-/* La ilustración ocupa el hueco a la derecha del nombre */
 .hero-photo {
-  grid-column: 8 / 12; /* termina una columna antes del borde: queda más hacia el centro */
+  grid-column: 8 / 12;
   grid-row: 1;
   align-self: start;
   justify-self: end;
@@ -115,7 +111,6 @@
   animation: fade-in 0.8s ease 0.6s both;
 }
 
-/* Rol: ocupa el hueco de abajo a la izquierda, con la misma serif del nombre */
 .hero-role {
   grid-column: 1 / 7;
   grid-row: 2;
@@ -144,6 +139,7 @@
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-sm);
   margin-top: var(--space-md);
 }
@@ -164,8 +160,6 @@
 
 /* ===========================
    PROYECTO DESTACADO
-   Cada .feature tiene un data-tone: al llegar a la mitad de la
-   pantalla, main.js cambia el tono de toda la página.
 =========================== */
 
 .feature {
@@ -188,7 +182,7 @@
   grid-column: 1 / 6;
   display: grid;
   gap: var(--space-md);
-  position: sticky; /* el texto acompaña mientras pasan las imágenes */
+  position: sticky;
   top: var(--header-offset);
 }
 
@@ -200,7 +194,6 @@
   grid-column: 7 / -1;
 }
 
-/* Proyectos alternos: el texto pasa a la derecha */
 .feature--reverse .feature-head {
   grid-column: 8 / -1;
   grid-row: 1;
@@ -243,7 +236,6 @@
   background: var(--tone-accent);
 }
 
-/* Ficha técnica: definición (dt) y valor (dd) en dos columnas */
 .feature-meta {
   display: grid;
   gap: 0.5rem;
@@ -265,7 +257,6 @@
 
 /* ===========================
    ESPECIALES
-   Cada tarjeta usa los colores de su especial.
 =========================== */
 
 .specials {
@@ -316,7 +307,6 @@
   gap: 0.35rem;
 }
 
-/* Pie de la tarjeta: muestras de color a un lado y el aviso de enlace al otro */
 .special-foot {
   display: flex;
   align-items: center;
@@ -337,7 +327,6 @@
   text-underline-offset: 0.25em;
 }
 
-/* Icono de "enlace externo": indica que se abre otra web */
 .special-cta svg {
   width: 0.9em;
   height: 0.9em;
@@ -367,10 +356,6 @@
   background: var(--s-third);
 }
 
-/* Cada especial con su personalidad tipográfica */
-
-/* Colores y tipografías sacados del código de cada especial publicado */
-
 .special--aniversario {
   --s-bg: #fff7f1;
   --s-ink: #222222;
@@ -378,25 +363,21 @@
   --s-third: #f5f5f5;
 }
 
-/* Etiqueta que destaca el especial del aniversario */
 .special-badge {
   align-self: flex-start;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   background: var(--s-accent);
-  color: #222222; /* texto oscuro sobre naranja: contraste suficiente en tamaño pequeño */
+  color: #222222;
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
 }
 
-/* Roboto fina, como sus titulares */
 .special--aniversario .special-name {
   font-family: Roboto, system-ui, sans-serif;
   font-weight: 300;
 }
 
-/* Su crema es casi igual que el fondo de la sección:
-   un borde fino y una sombra suave la separan sin cambiar su color */
 .special--aniversario {
   border: 1px solid rgba(36, 31, 26, 0.14);
   box-shadow: 0 10px 30px -18px rgba(36, 31, 26, 0.35);
@@ -409,7 +390,6 @@
   --s-third: #ffffff;
 }
 
-/* Cambria en cursiva y verde salvia, como el acento de sus titulares */
 .special--salud .special-name {
   font-family: Cambria, Georgia, serif;
   font-style: italic;
@@ -423,7 +403,6 @@
   --s-third: #f6f4ec;
 }
 
-/* Playfair Display en mayúsculas en el especial; aquí con Georgia de respaldo */
 .special--formacion .special-name {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 600;
@@ -431,7 +410,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Separador ondulado dibujado con SVG, como en el especial */
 .special--formacion .special-name::after {
   content: "";
   display: block;
@@ -443,7 +421,7 @@
 
 .special--movilidad {
   --s-bg: #7694a6;
-  --s-ink: #13222b; /* oscuro en vez de blanco: en texto pequeño, el blanco no tiene contraste suficiente */
+  --s-ink: #13222b;
   --s-accent: #a6c3d1;
   --s-third: #dce5e8;
 
@@ -460,7 +438,6 @@
 
 /* ===========================
    TODOS LOS PROYECTOS
-   Índice completo: cada tarjeta entera lleva a su análisis.
 =========================== */
 
 .all-projects {
@@ -482,7 +459,6 @@
   gap: var(--space-md);
 }
 
-/* Filtros: botones tipo píldora; el activo se rellena */
 .project-filters {
   display: flex;
   flex-wrap: wrap;
@@ -510,7 +486,6 @@
   color: var(--color-background);
 }
 
-/* Mensaje cuando un filtro no tiene proyectos todavía */
 .project-empty {
   padding: var(--space-lg) var(--space-md);
   border: 1px dashed var(--color-border);
@@ -523,7 +498,6 @@
   display: none;
 }
 
-/* Las tarjetas filtradas se ocultan con el atributo hidden */
 .project-grid li[hidden] {
   display: none;
 }
@@ -632,6 +606,10 @@
   gap: var(--space-xl);
 }
 
+.experience-cv {
+  justify-self: start;
+}
+
 .experience-cols {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -647,7 +625,6 @@
   color: var(--color-primary-ink);
 }
 
-/* Línea de tiempo: la raya vertical une las etapas en orden */
 .timeline {
   display: grid;
   gap: var(--space-md);
@@ -664,7 +641,7 @@
 .timeline li::before {
   content: "";
   position: absolute;
-  left: -28.5px; /* centra el punto sobre la línea */
+  left: -28.5px;
   top: 0.45rem;
   width: 8px;
   height: 8px;
@@ -752,19 +729,16 @@
    RESPONSIVE
 =========================== */
 
-/* Escritorio: el hero ocupa exactamente la primera pantalla.
-   svh = alto "pequeño" de la pantalla, el que queda con todas las barras del navegador visibles. */
 @media (min-width: 993px) {
   .hero {
     height: 100svh;
-    min-height: 32rem; /* en pantallas muy bajas, mejor que crezca a que se corte */
+    min-height: 32rem;
     padding-top: var(--header-offset);
     padding-bottom: var(--space-lg);
   }
 
 }
 
-/* Portátiles con poca altura: nombre e ilustración más pequeños para que el inicio quepa en la pantalla */
 @media (min-width: 993px) and (max-height: 760px) {
   :root {
     --fs-hero: 9rem;
@@ -807,7 +781,6 @@
     row-gap: var(--space-md);
   }
 
-  /* En móvil el nombre se ajusta al ancho de pantalla */
   .hero-name {
     font-size: 27vw;
     grid-row: 2;
@@ -844,7 +817,6 @@
   }
 }
 
-/* Captura de un proyecto destacado */
 .feature-image {
   width: 100%;
   height: auto;

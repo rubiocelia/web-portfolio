@@ -1,16 +1,13 @@
 /* ===========================
    VARIABLES
-   Tokens de diseño: todo color, tipografía y medida
-   sale de aquí. Si cambias un valor, cambia en toda la web.
 =========================== */
 
 :root {
-  /* COLORES · paleta salvia */
+  /* COLORES */
 
   --color-primary: #879f94;
-  --color-primary-dark: #6f877d;
   --color-primary-light: #a5b8af;
-  --color-primary-ink: #4a6157; /* salvia oscuro: el único que pasa contraste AA como texto sobre claro */
+  --color-primary-ink: #4a6157;
   --color-primary-wash: #e6ece8;
 
   --color-background: #f7f7f5;
@@ -21,35 +18,24 @@
 
   --color-border: #e2e2de;
 
-  /* TONO DE SECCIÓN
-     El JS cambia data-tone en <html> según el proyecto visible
-     y estos tres valores cambian con él (ver bloque TONOS). */
+  /* TONO DE SECCIÓN */
 
   --tone-bg: var(--color-background);
   --tone-ink: var(--color-text);
   --tone-accent: var(--color-primary-ink);
 
-  /* COLORES SEMITRANSPARENTES
-     Se calculan aquí una sola vez a partir del tono, así que también
-     cambian solos con cada proyecto y con el modo oscuro.
-     En el resto del CSS solo se usa el nombre: var(--line), var(--accent-soft)... */
+  /* COLORES SEMITRANSPARENTES */
 
-  --line: color-mix(in srgb, var(--tone-ink) 12%, transparent); /* bordes y líneas finas */
-  --line-strong: color-mix(in srgb, var(--tone-ink) 20%, transparent); /* bordes de botones */
-  --text-soft: color-mix(in srgb, var(--tone-ink) 72%, transparent); /* textos secundarios */
-  --accent-soft: color-mix(in srgb, var(--tone-accent) 8%, transparent); /* fondos suaves */
-  --accent-faint: color-mix(in srgb, var(--tone-accent) 14%, transparent); /* columnas del esquema */
-  --accent-line: color-mix(in srgb, var(--tone-accent) 50%, transparent); /* bordes de color */
-  --header-bg: color-mix(in srgb, var(--tone-bg) 86%, transparent); /* cabecera translúcida */
-  --hero-glow: color-mix(in srgb, var(--color-primary-light) 38%, transparent); /* fondo del hero */
-  --hero-glow-soft: color-mix(in srgb, var(--color-primary-light) 22%, transparent);
+  --line: color-mix(in srgb, var(--tone-ink) 12%, transparent);
+  --text-soft: color-mix(in srgb, var(--tone-ink) 72%, transparent);
+  --accent-soft: color-mix(in srgb, var(--tone-accent) 8%, transparent);
+  --accent-line: color-mix(in srgb, var(--tone-accent) 50%, transparent);
 
   /* TIPOGRAFÍA */
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Hanken Grotesk", system-ui, sans-serif;
 
-  /* Tamaños de escritorio. En tablet y móvil cambian en el bloque RESPONSIVE de abajo */
   --fs-xs: 0.8125rem;
   --fs-sm: 0.9375rem;
   --fs-md: 1.0625rem;
@@ -75,10 +61,8 @@
 
   /* LAYOUT */
 
-  --container: 1240px;
-  --gutter: 2.5rem; /* margen a los lados de la página */
-  --header-height: 72px;
-  --header-offset: 6rem; /* altura del header + aire: para anclas y elementos fijos */
+  --gutter: 2.5rem;
+  --header-offset: 6rem;
   --radius-sm: 6px;
   --radius-md: 14px;
 
@@ -92,7 +76,6 @@
 
 /* ===========================
    RESPONSIVE
-   Mismos puntos de ruptura que la rejilla .gd de elEconomista.
 =========================== */
 
 /* Tablet */
@@ -129,13 +112,9 @@
 
 /* ===========================
    MODO OSCURO
-   Va en <html> (no en <body>) para poder aplicarlo
-   en el <head> antes de pintar y evitar el parpadeo.
 =========================== */
 
 :root.dark-mode {
-  --hero-glow: color-mix(in srgb, var(--color-primary) 14%, transparent); /* en oscuro, más tenue */
-  --hero-glow-soft: color-mix(in srgb, var(--color-primary) 7%, transparent);
   --color-primary-ink: #a5b8af;
   --color-primary-wash: #24302b;
 
@@ -150,8 +129,6 @@
 
 /* ===========================
    TONOS
-   Un tono por proyecto. En modo claro cambian el fondo;
-   en modo oscuro solo el acento, para no deslumbrar.
 =========================== */
 
 :root[data-tone="economista"] {
@@ -187,7 +164,7 @@
 :root[data-tone="erizo"] {
   --tone-bg: #fbf6dc;
   --tone-ink: #1a1a1a;
-  --tone-accent: #0050c8; /* el azul de la marca, oscurecido para pasar contraste AA */
+  --tone-accent: #0050c8;
 }
 
 :root[data-tone="qqservicios"] {
@@ -205,7 +182,7 @@
 :root[data-tone="volaris"] {
   --tone-bg: #eef7f4;
   --tone-ink: #0b1220;
-  --tone-accent: #027a6a; /* el turquesa del club, oscurecido para pasar contraste AA */
+  --tone-accent: #027a6a;
 }
 
 :root.dark-mode[data-tone] {

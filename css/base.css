@@ -12,7 +12,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--header-offset); /* que las anclas no queden debajo del header fijo */
+  scroll-padding-top: var(--header-offset);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -65,7 +65,7 @@ h4 {
   font-weight: var(--fw-regular);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  font-optical-sizing: auto; /* Fraunces ajusta su diseño al tamaño: fina en grande, robusta en pequeño */
+  font-optical-sizing: auto;
 }
 
 h2 {
@@ -85,10 +85,9 @@ p {
    LAYOUT
 =========================== */
 
-/* Ancho máximo del contenido, centrado y con margen a los lados */
 .container {
   width: 100%;
-  max-width: 1320px; /* 1240px de contenido + el margen de los lados */
+  max-width: 1320px;
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -101,14 +100,12 @@ p {
    ACCESIBILIDAD
 =========================== */
 
-/* Foco visible solo al navegar con teclado */
 :focus-visible {
   outline: 2px solid var(--color-primary-ink);
   outline-offset: 4px;
   border-radius: 2px;
 }
 
-/* Enlace para saltar al contenido: invisible hasta que recibe foco */
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -135,7 +132,6 @@ p {
   white-space: nowrap;
 }
 
-/* Si la persona ha pedido menos movimiento en su sistema, lo respetamos */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -4,20 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rediseño de elEconomista.es · Celia Rubio</title>
-    <meta name="description" content="Análisis del rediseño de elEconomista.es: sistema de rejilla propio con CSS Grid, variables CSS y Core Web Vitals.">
+    <title>Nueva estructura de elEconomista.es · Celia Rubio</title>
+    <meta name="description" content="Análisis de la nueva estructura de elEconomista.es: rejilla propia con CSS Grid, variables CSS y Core Web Vitals.">
     <link rel="canonical" href="https://rubiocelia.github.io/web-portfolio/proyectos/rediseno-eleconomista.html">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 
-    <!-- Vista previa al compartir el enlace (LinkedIn, WhatsApp...) -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Rediseño de elEconomista.es: de Bootstrap a una rejilla propia · Celia Rubio">
-    <meta property="og:description" content="Análisis del rediseño de elEconomista.es: sistema de rejilla propio con CSS Grid, variables CSS y Core Web Vitals.">
+    <meta property="og:title" content="Una estructura propia para elEconomista.es: más libertad para diseñar las noticias · Celia Rubio">
+    <meta property="og:description" content="Análisis de la nueva estructura de elEconomista.es: rejilla propia con CSS Grid, variables CSS y Core Web Vitals.">
     <meta property="og:url" content="https://rubiocelia.github.io/web-portfolio/proyectos/rediseno-eleconomista.html">
     <meta property="og:image" content="https://rubiocelia.github.io/web-portfolio/assets/img/og-portada.png">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Tema: se aplica antes de pintar para que no parpadee -->
     <script>
         (function () {
             let theme = null;
@@ -100,13 +98,24 @@
 
             <p class="case-type">Trabajo profesional en elEconomista</p>
 
-            <h1 class="case-title">Rediseño de elEconomista.es: de Bootstrap a una rejilla propia</h1>
+            <h1 class="case-title">Una estructura propia para elEconomista.es: más libertad para diseñar las noticias</h1>
 
             <p class="case-lead">
-                Estamos rediseñando la web entera del periódico para modernizarla. Una de las piezas clave ha sido
-                sustituir Bootstrap por un sistema de rejilla propio, programado desde cero con CSS Grid, pensado
-                para cargar menos y mejorar las Core Web Vitals.
+                Un cambio de estructura en la web del periódico para mejorar cómo se ven las noticias: Bootstrap
+                deja paso a una rejilla propia, programada desde cero con CSS Grid, que da más libertad para diseñar
+                y carga menos.
             </p>
+
+            <dl class="impact">
+                <div class="impact-item">
+                    <dt>Punto de partida</dt>
+                    <dd>Toda la web dependía de Bootstrap: teníamos que ajustarnos a las clases que ofrecía, y cada noticia tenía que encajar en sus columnas fijas.</dd>
+                </div>
+                <div class="impact-item impact-item--result">
+                    <dt>Resultado</dt>
+                    <dd>Una estructura propia que nos da libertad para diseñar lo que de verdad necesitamos: cada noticia tiene el tamaño que pide su importancia, con menos CSS que cargar.</dd>
+                </div>
+            </dl>
 
             <dl class="case-meta">
                 <div>
@@ -114,21 +123,16 @@
                     <dd>Diseño en Figma y desarrollo frontend</dd>
                 </div>
                 <div>
-                    <dt>Equipo</dt>
-                    <dd>Dos personas, en coordinación con Redacción y Desarrollo</dd>
-                </div>
-                <div>
                     <dt>Herramientas</dt>
                     <dd>Figma, HTML, CSS Grid, variables CSS, JavaScript</dd>
                 </div>
                 <div>
                     <dt>Fecha</dt>
-                    <dd>2026, lanzamiento por fases</dd>
+                    <dd>2026</dd>
                 </div>
             </dl>
 
             <!-- TODO: cuando se publique, añadir los botones Ver la web -->
-
 
         </header>
 
@@ -171,26 +175,9 @@
                     usaban y obligaba a pensar cada bloque dentro de las columnas del framework.
                 </p>
                 <p>
-                    Como el rediseño aún no está publicado del todo, aquí no hay capturas: el esquema de arriba explica el
-                    sistema con bloques genéricos.
+                    Para no mostrar el diseño real, aquí no hay capturas: el esquema de arriba explica el sistema con
+                    bloques genéricos.
                 </p>
-            </div>
-
-        </section>
-
-        <section class="container case-section" aria-label="Cómo lo hicimos">
-
-            <h2>Cómo lo hicimos</h2>
-
-            <div class="case-body">
-                <ul>
-                <li>Varias propuestas de la web entera en Figma.</li>
-                <li>Ideas de diseño por módulos y secciones, para verlas en conjunto y quedarnos con las mejores.</li>
-                <li>Reuniones con Redacción: el rediseño también actualiza el gestor desde el que preparan las portadas, para que trabajen más rápido.</li>
-                <li>Reuniones con Desarrollo para acordar cómo trabajar juntos.</li>
-                <li>Maquetas programadas que Desarrollo recibe y termina de integrar.</li>
-                <li>Maquetas en producción para que cada departamento haga pruebas y pida correcciones.</li>
-                </ul>
             </div>
 
         </section>
@@ -281,8 +268,8 @@
 
             <div class="case-body">
                 <p>
-                    Google mide la experiencia de una web con tres métricas, las Core Web Vitals. Cada decisión del rediseño
-                    ayuda a alguna de ellas:
+                    Google mide la experiencia de una web con tres métricas, las Core Web Vitals. Cada decisión de la nueva
+                    estructura ayuda a alguna de ellas:
                 </p>
                 <div class="case-table-wrap">
                     <table class="case-table">
@@ -315,19 +302,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-        </section>
-
-        <section class="container case-section" aria-label="Lanzamiento por fases">
-
-            <h2>Lanzamiento por fases</h2>
-
-            <div class="case-body">
-                <p>
-                    El rediseño se publica poco a poco: primero las noticias, después las portadas y más adelante el resto de
-                    la web, como las portadillas de cada sección.
-                </p>
             </div>
 
         </section>

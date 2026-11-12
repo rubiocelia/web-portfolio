@@ -1,7 +1,5 @@
 /* ===========================
    PÁGINA DE PROYECTO
-   Plantilla común de todos los análisis (carpeta proyectos/).
-   El color de cada página sale de su data-tone en <html>.
 =========================== */
 
 /* ===========================
@@ -47,6 +45,11 @@
   line-height: 1.45;
 }
 
+.case-hero .impact {
+  grid-column: 1 / 9;
+  margin-top: var(--space-xs);
+}
+
 .case-meta {
   grid-column: 1 / -1;
   display: grid;
@@ -76,7 +79,6 @@
 
 /* ===========================
    SECCIONES
-   Título fijo a la izquierda, contenido a la derecha.
 =========================== */
 
 .case-section {
@@ -135,7 +137,6 @@
   background: var(--accent-soft);
 }
 
-/* Nota de algo que falta por rellenar: se ve a propósito para no olvidarlo */
 .todo {
   padding: var(--space-sm) var(--space-md);
   border: 1px dashed var(--accent-line);
@@ -217,6 +218,7 @@
 =========================== */
 
 @media (max-width: 992px) {
+  .case-hero .impact,
   .case-title,
   .case-lead,
   .case-meta,
@@ -255,7 +257,6 @@
    TABLAS Y CÓDIGO
 =========================== */
 
-/* En móvil la tabla se desplaza sola en horizontal, sin romper la página */
 .case-table-wrap {
   overflow-x: auto;
 }
@@ -300,7 +301,6 @@
   background: none;
 }
 
-/* Pasos numerados de un proceso */
 .case-steps {
   display: grid;
   gap: var(--space-sm);
@@ -326,7 +326,6 @@
   font-weight: var(--fw-medium);
 }
 
-/* Galería de portada: varias capturas del mismo proyecto */
 .case-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -336,10 +335,9 @@
 .case-gallery img {
   aspect-ratio: 10 / 3;
   object-fit: cover;
-  object-position: center bottom; /* conserva los sellos y títulos, que están abajo o en el centro */
+  object-position: center bottom;
 }
 
-/* Dos capturas una al lado de la otra */
 .case-figure-pair {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -352,8 +350,6 @@
   }
 }
 
-/* Portada en escritorio y móvil, una al lado de la otra.
-   Con 3.15fr y 1fr las dos capturas quedan a la misma altura */
 .case-devices {
   display: grid;
   grid-template-columns: 3.15fr 1fr;
